@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:header version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" scope="/" standalone="false">
+   <ui:contents>
+      <oa:defaultSingleColumn id="PurchaseInfoLayout" text="Refund Information/Recovery Efforts">
+         <ui:contents>
+            <oa:messageComponentLayout id="RefundInformation" width="50%" rows="3" columns="1">
+               <ui:contents>
+                  <oa:messageStyledText id="DateRefundRequested" dataType="DATE" prompt="Date Customer Requested Refund:" viewName="CurrentBatchVO1" viewAttr="CustomerRequestedRefund" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="DateRefundExecuted" dataType="DATE" prompt="Date You Executed Refund:" viewName="CurrentBatchVO1" viewAttr="RefundDate" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="RefundAmount" prompt="Amount of Refund:" viewName="CurrentBatchVO1" viewAttr="RefundAmount" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="RecoveryEffort" columns="100" rows="5" prompt="What actions were taken to correct the problem(s) before the customer invoked the money-back guarantee?" viewName="CurrentBatchVO1" viewAttr="RecoveryEfforts" maximumLength="200" styleClass="OraDataText"/>
+               </ui:contents>
+            </oa:messageComponentLayout>
+         </ui:contents>
+      </oa:defaultSingleColumn>
+   </ui:contents>
+</oa:header>

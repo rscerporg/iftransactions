@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="LPUsedVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.LPUsedVORowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.LPUsedVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select 'Yes' as LPUsed, 1 as LPUsedValue from dual
+union
+select 'No' as LPUsed, 0 as LPUsedValue from dual
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <ViewAttribute
+      Name="Lpused"
+      IsPersistent="false"
+      Precision="3"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="LPUSED"
+      Expression="LPUSED"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="3" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Lpusedvalue"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="LPUSEDVALUE"
+      Expression="LPUSEDVALUE"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

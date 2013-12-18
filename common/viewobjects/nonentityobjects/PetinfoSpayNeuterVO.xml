@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="PetinfoSpayNeuterVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.PetinfoSpayNeuterVORowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.PetinfoSpayNeuterVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select 'Yes' as SpayNeuter, 1 as SpayNeuterValue from dual
+union
+select 'No' as SpayNeuter, 0 as SpayNeuterValue from dual
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <ViewAttribute
+      Name="Spayneuter"
+      IsPersistent="false"
+      Precision="3"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SPAYNEUTER"
+      Expression="SPAYNEUTER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="3" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Spayneutervalue"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="SPAYNEUTERVALUE"
+      Expression="SPAYNEUTERVALUE"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

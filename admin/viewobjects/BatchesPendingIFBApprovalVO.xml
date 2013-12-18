@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="BatchesPendingIFBApprovalVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.BatchesPendingIFBApprovalVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT RscIfbTransactionsBatchEO.BATCH_ID, 
+       RscIfbTransactionsBatchEO.CUST_INFO_NAME, 
+       RscIfbTransactionsBatchEO.CUST_INFO_ADDRESS1, 
+       RscIfbTransactionsBatchEO.CUST_INFO_ADDRESS2, 
+       RscIfbTransactionsBatchEO.CUST_INFO_ADDRESS3, 
+       RscIfbTransactionsBatchEO.CUST_INFO_CITY, 
+       RscIfbTransactionsBatchEO.CUST_INFO_STATE, 
+       RscIfbTransactionsBatchEO.CUST_INFO_ZIP, 
+       RscIfbTransactionsBatchEO.CUST_INFO_PHONE, 
+       RscIfbTransactionsBatchEO.CUST_INFO_FAX, 
+       RscIfbTransactionsBatchEO.CUST_INFO_EMAIL, 
+       RscIfbTransactionsBatchEO.PURCHASE_DATE, 
+       RscIfbTransactionsBatchEO.PURCHASE_PLACE, 
+       RscIfbTransactionsBatchEO.PURCHASE_UPGRADE_REASON, 
+       RscIfbTransactionsBatchEO.PURCHASE_UPGRADE_SOURCE, 
+       RscIfbTransactionsBatchEO.DEALER_NAME, 
+       RscIfbTransactionsBatchEO.DEALER_ID, 
+       RscIfbTransactionsBatchEO.DEALER_SIGNATURE, 
+       RscIfbTransactionsBatchEO.CLAIM_SUBMISSION_DATE, 
+       RscIfbTransactionsBatchEO.DISTRIBUTOR_NAME, 
+       RscIfbTransactionsBatchEO.DISTRIBUTOR_ID, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_1, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_2, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_3, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_4, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_5, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_6, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_7, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_8, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_9, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_10, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_11, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_12, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_13, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_14, 
+       RscIfbTransactionsBatchEO.ADDITIONAL_INFO_15,
+       RscIfbTransactionsBatchEO.WF_KEY, 
+       RscIfbTransactionsBatchEO.WF_ITEM_TYPE, 
+       RscIfbTransactionsBatchEO.WF_ITEM_KEY, 
+       RscIfbTransactionsBatchEO.WF_USER_KEY, 
+       RscIfbTransactionsBatchEO.WF_APPROVER, 
+       RscIfbTransactionsBatchEO.WF_PERFORMER, 
+       RscIfbTransactionsBatchEO.WF_OWNER, 
+       RscIfbTransactionsBatchEO.WF_INITIATED_BY,  
+       RscIfbTransactionsBatchEO.APPROVAL_NEEDED_FROM,
+       RscIfbTransactionsBatchEO.STATUS, 
+       RscIfbTransactionsBatchEO.CREATED_BY, 
+       RscIfbTransactionsBatchEO.LAST_UPDATE_LOGIN, 
+       RscIfbTransactionsBatchEO.LAST_UPDATED_BY, 
+       RscIfbTransactionsBatchEO.CREATION_DATE, 
+       RscIfbTransactionsBatchEO.LAST_UPDATE_DATE, 
+
+(nvl(RscIfbTransactionsBatchEO.cust_info_address1, '') || ' , ' || nvl(RscIfbTransactionsBatchEO.cust_info_city, '') || ' , ' || nvl(RscIfbTransactionsBatchEO.cust_info_state, '') || ' , ' || nvl(RscIfbTransactionsBatchEO.cust_info_zip, '') ) Cust_Address_Disp,
+(select count(itemsOut.replacement_id) from RSC_IFB_UPGRADES_ITEM_OUT itemsOut where itemsOut.batch_id = RscIfbTransactionsBatchEO.batch_id) New_Equip_Count,
+(select count(rscin.trade_in_id) from RSC_IFB_UPGRADES_ITEMS_IN rscin where rscin.batch_id = RscIfbTransactionsBatchEO.batch_id) Replaced_RSC_Equip_Count,
+(select count(nonrscin.trade_in_id) from RSC_IFB_UPGRADES_ITEMS_IN nonrscin where nonrscin.batch_id = RscIfbTransactionsBatchEO.batch_id) Replaced_Non_RSC_Equip_Count,
+(decode(RscIfbTransactionsBatchEO.status, 'PENDING_APPROVAL', 'Pending Approval', 'APPROVED', 'Approved', 'Contact Administrator') ) Batch_Status,
+NVL((select sum(itemsout.upgrade_credit_value) from RSC_IFB_UPGRADES_ITEM_OUT itemsout where itemsout.batch_id = RscIfbTransactionsBatchEO.batch_id), 0) EligibleCredit,
+
+NVL( (select rtrim (xmlagg (xmlelement (e, itemsout.replacement_item_model_name || ',')).extract ('//text()'), ',') from rsc_ifb_upgrades_item_out itemsout where itemsout.batch_id = RscIfbTransactionsBatchEO.batch_id), 'N/A') New_Equipments_List, 
+NVL( (select rtrim (xmlagg (xmlelement (e, itemsin.trade_in_item_model_name || ',')).extract ('//text()'), ',') from rsc_ifb_upgrades_items_in itemsin where itemsin.batch_id = RscIfbTransactionsBatchEO.batch_id and IS_RSC_ITEM = 'YES'), 'N/A') Replaced_Rsc_Equip_list, 
+NVL( (select rtrim (xmlagg (xmlelement (e, itemsin.trade_in_item_model_name || ',')).extract ('//text()'), ',') from rsc_ifb_upgrades_items_in itemsin where itemsin.batch_id = RscIfbTransactionsBatchEO.batch_id and IS_RSC_ITEM = 'NO'), 'N/A') Replaced_Non_Rsc_Equip_list
+
+
+FROM RSC_IFB_UPGRADES_BATCH RscIfbTransactionsBatchEO
+where RscIfbTransactionsBatchEO.STATUS in ( 'PENDING_RSC_APPROVAL' , 'PENDING_APPROVAL' )
+and RscIfbTransactionsBatchEO.APPROVAL_NEEDED_FROM = 1
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <EntityUsage
+      Name="RscIfbTransactionsBatchEO"
+      Entity="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects.RscIfbTransactionsBatchEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="BatchId"
+      IsNotNull="true"
+      EntityAttrName="BatchId"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="BATCH_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoName"
+      Precision="200"
+      EntityAttrName="CustInfoName"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CUST_INFO_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoAddress1"
+      Precision="200"
+      EntityAttrName="CustInfoAddress1"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CUST_INFO_ADDRESS1" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoAddress2"
+      Precision="200"
+      EntityAttrName="CustInfoAddress2"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CUST_INFO_ADDRESS2" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoAddress3"
+      Precision="200"
+      EntityAttrName="CustInfoAddress3"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CUST_INFO_ADDRESS3" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoCity"
+      Precision="200"
+      EntityAttrName="CustInfoCity"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CUST_INFO_CITY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoState"
+      Precision="20"
+      EntityAttrName="CustInfoState"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CUST_INFO_STATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoZip"
+      EntityAttrName="CustInfoZip"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CUST_INFO_ZIP" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoPhone"
+      EntityAttrName="CustInfoPhone"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CUST_INFO_PHONE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoFax"
+      EntityAttrName="CustInfoFax"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CUST_INFO_FAX" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoEmail"
+      Precision="2000"
+      EntityAttrName="CustInfoEmail"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CUST_INFO_EMAIL" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PurchaseDate"
+      EntityAttrName="PurchaseDate"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="PURCHASE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PurchasePlace"
+      Precision="2000"
+      EntityAttrName="PurchasePlace"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="PURCHASE_PLACE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PurchaseUpgradeReason"
+      Precision="2000"
+      EntityAttrName="PurchaseUpgradeReason"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="PURCHASE_UPGRADE_REASON" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PurchaseUpgradeSource"
+      Precision="2000"
+      EntityAttrName="PurchaseUpgradeSource"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="PURCHASE_UPGRADE_SOURCE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DealerName"
+      Precision="2000"
+      EntityAttrName="DealerName"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="DEALER_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DealerId"
+      EntityAttrName="DealerId"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="DEALER_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DealerSignature"
+      Precision="2000"
+      EntityAttrName="DealerSignature"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="DEALER_SIGNATURE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ClaimSubmissionDate"
+      EntityAttrName="ClaimSubmissionDate"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CLAIM_SUBMISSION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DistributorName"
+      Precision="2000"
+      EntityAttrName="DistributorName"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="DISTRIBUTOR_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DistributorId"
+      EntityAttrName="DistributorId"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="DISTRIBUTOR_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo1"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo1"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_1" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo2"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo2"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_2" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo3"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo3"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_3" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo4"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo4"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_4" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo5"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo5"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_5" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo6"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo6"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_6" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo7"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo7"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_7" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo8"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo8"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_8" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo9"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo9"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_9" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo10"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo10"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_10" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo11"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo11"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_11" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo12"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo12"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_12" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo13"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo13"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_13" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo14"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo14"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_14" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo15"
+      Precision="2000"
+      EntityAttrName="AdditionalInfo15"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="ADDITIONAL_INFO_15" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WfKey"
+      Precision="200"
+      EntityAttrName="WfKey"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="WF_KEY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WfItemType"
+      Precision="200"
+      EntityAttrName="WfItemType"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="WF_ITEM_TYPE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WfItemKey"
+      Precision="200"
+      EntityAttrName="WfItemKey"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="WF_ITEM_KEY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WfUserKey"
+      Precision="200"
+      EntityAttrName="WfUserKey"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="WF_USER_KEY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WfApprover"
+      Precision="200"
+      EntityAttrName="WfApprover"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="WF_APPROVER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WfPerformer"
+      Precision="200"
+      EntityAttrName="WfPerformer"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="WF_PERFORMER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WfOwner"
+      Precision="200"
+      EntityAttrName="WfOwner"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="WF_OWNER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WfInitiatedBy"
+      Precision="200"
+      EntityAttrName="WfInitiatedBy"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="WF_INITIATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ApprovalNeededFrom"
+      EntityAttrName="ApprovalNeededFrom"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="APPROVAL_NEEDED_FROM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Status"
+      Precision="20"
+      EntityAttrName="Status"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="STATUS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="CreatedBy"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      EntityAttrName="CreationDate"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="RscIfbTransactionsBatchEO"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustAddressDisp"
+      IsPersistent="false"
+      Precision="469"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CUST_ADDRESS_DISP"
+      Expression="CUST_ADDRESS_DISP"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="469" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NewEquipCount"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NEW_EQUIP_COUNT"
+      Expression="NEW_EQUIP_COUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReplacedRscEquipCount"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="REPLACED_RSC_EQUIP_COUNT"
+      Expression="REPLACED_RSC_EQUIP_COUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReplacedNonRscEquipCount"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="REPLACED_NON_RSC_EQUIP_COUNT"
+      Expression="REPLACED_NON_RSC_EQUIP_COUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BatchStatus"
+      IsPersistent="false"
+      Precision="21"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="BATCH_STATUS"
+      Expression="BATCH_STATUS"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="21" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Eligiblecredit"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ELIGIBLECREDIT"
+      Expression="ELIGIBLECREDIT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NewEquipmentsList"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NEW_EQUIPMENTS_LIST"
+      Expression="NEW_EQUIPMENTS_LIST"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReplacedRscEquipList"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="REPLACED_RSC_EQUIP_LIST"
+      Expression="REPLACED_RSC_EQUIP_LIST"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReplacedNonRscEquipList"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="REPLACED_NON_RSC_EQUIP_LIST"
+      Expression="REPLACED_NON_RSC_EQUIP_LIST"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Transient1"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Transient2"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Transient3"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+</ViewObject>

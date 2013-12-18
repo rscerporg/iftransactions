@@ -1,0 +1,28 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig>
+   <AppModuleConfigBag>
+      <AppModuleConfig name="MoneyBackBatchCreationAMLocal">
+         <AppModuleJndiName>oracle.apps.po.rscapps.oss.iftransactions.moneyback.applicationmodules.MoneyBackBatchCreationAM</AppModuleJndiName>
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>RSC_DEV</JDBCName>
+         <ApplicationName>oracle.apps.po.rscapps.oss.iftransactions.moneyback.applicationmodules.MoneyBackBatchCreationAM</ApplicationName>
+         <jbo.project>IFTransactions</jbo.project>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <ConnectionDefinition name="RSC_DEV">
+      <ENTRY name="JDBC_PORT" value="1521"/>
+      <ENTRY name="ConnectionType" value="JDBC"/>
+      <ENTRY name="HOSTNAME" value="localhost"/>
+      <ENTRY name="DeployPassword" value="true"/>
+      <ENTRY name="user" value="APPS"/>
+      <ENTRY name="ConnectionName" value="RSC_DEV"/>
+      <ENTRY name="URL" value="jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=tcp)(HOST=exa0201-vip.rsccorp.radiosys.com)(PORT=1547))(ADDRESS=(PROTOCOL=tcp)(HOST=exa0202-vip.rsccorp.radiosys.com)(PORT=1547)))(CONNECT_DATA=(SERVICE_NAME=DEV)))"/>
+      <ENTRY name="SID" value="ORCL"/>
+      <ENTRY name="password">
+         <![CDATA[APPS]]>
+      </ENTRY>
+      <ENTRY name="JdbcDriver" value="oracle.jdbc.driver.OracleDriver"/>
+      <ENTRY name="ORACLE_JDBC_TYPE" value="thin"/>
+      <ENTRY name="DeployPassword" value="true"/>
+   </ConnectionDefinition>
+</BC4JConfig>

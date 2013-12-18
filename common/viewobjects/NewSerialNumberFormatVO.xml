@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="NewSerialNumberFormatVO"
+   SelectList="RscIfbTransactionsSerialFmts.ITEM_CODE, 
+       RscIfbTransactionsSerialFmts.ITEM_NAME, 
+
+       RscIfbTransactionsSerialFmts.MODULE_NUMBER, 
+       RscIfbTransactionsSerialFmts.CREATED_BY, 
+
+       RscIfbTransactionsSerialFmts.LAST_UPDATE_LOGIN, 
+    
+   RscIfbTransactionsSerialFmts.LAST_UPDATED_BY, 
+       RscIfbTransactionsSerialFmts.CREATION_DATE, 
+
+       RscIfbTransactionsSerialFmts.LAST_UPDATE_DATE"
+   FromList="RSC_IFB_UPGRDS_SERIAL_FMTS RscIfbTransactionsSerialFmts"
+   BindingStyle="Oracle"
+   CustomQuery="false"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewSerialNumberFormatVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <EntityUsage
+      Name="RscIfbTransactionsSerialFmts"
+      Entity="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects.RscIfbTransactionsSerialFmtsEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="ItemCode"
+      IsNotNull="true"
+      Precision="200"
+      EntityAttrName="ItemCode"
+      EntityUsage="RscIfbTransactionsSerialFmts"
+      AliasName="ITEM_CODE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ItemName"
+      Precision="2000"
+      EntityAttrName="ItemName"
+      EntityUsage="RscIfbTransactionsSerialFmts"
+      AliasName="ITEM_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ModuleNumber"
+      Precision="2000"
+      EntityAttrName="ModuleNumber"
+      EntityUsage="RscIfbTransactionsSerialFmts"
+      AliasName="MODULE_NUMBER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="CreatedBy"
+      EntityUsage="RscIfbTransactionsSerialFmts"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="RscIfbTransactionsSerialFmts"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="RscIfbTransactionsSerialFmts"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      EntityAttrName="CreationDate"
+      EntityUsage="RscIfbTransactionsSerialFmts"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="RscIfbTransactionsSerialFmts"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Transient1"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Transient2"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Transient3"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+</ViewObject>

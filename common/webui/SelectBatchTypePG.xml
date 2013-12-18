@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" windowTitle="Select Batch Type" title="Select Batch Type" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.common.webui.SelectBatchTypePGCO" amDefName="oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchTypeAM">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/ifupgrades/util/RskUtilsRN"/>
+            <oa:rowLayout id="BatchType" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewBatchTypeRN"/>
+            <oa:pageButtonBar id="PageButtons" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonExistingBatchPageButtonsRN"/>
+         </ui:contents>
+         <ui:inContextBranding>
+            <oa:formattedText id="PageHeading1" text="" styleClass="CenterTextAlign"/>
+         </ui:inContextBranding>
+         <ui:productBranding>
+            <oa:formattedText id="PageHeading2" text="BATCH TYPE"/>
+         </ui:productBranding>
+      </oa:pageLayout>
+   </content>
+</page>

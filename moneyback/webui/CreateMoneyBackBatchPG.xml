@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" amDefName="oracle.apps.po.rscapps.oss.iftransactions.moneyback.applicationmodules.MoneyBackBatchCreationAM" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.moneyback.webui.CreateMoneyBackBatchPGCO" windowTitle="Create One Year Money Back Batch">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:inContextBranding>
+            <oa:formattedText id="PageHeading1" text="" styleClass="CenterTextAlign"/>
+         </ui:inContextBranding>
+         <ui:productBranding>
+            <oa:formattedText id="PageHeading2" text="ONE YEAR MONEY BACK"/>
+         </ui:productBranding>
+         <ui:contents>
+            <oa:header id="CustomerInformation" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewCustomerInfoRN"/>
+            <oa:spacer id="spacer1" height="20"/>
+            <oa:header id="MoneyBackPurchaseInfo" extends="/oracle/apps/po/rscapps/oss/iftransactions/moneyback/webui/MoneyBackNewPurchaseInfoRN"/>
+            <oa:spacer id="spacer2" height="20"/>
+            <oa:header id="EquipmentInfo" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewEquipmentRN" text="Trade-In Information"/>
+            <oa:spacer id="spacer3" height="20"/>
+            <oa:header id="LPInfo" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewLPInfoRN"/>
+            <oa:spacer id="spacer4" height="20"/>
+            <oa:header id="PetInfo" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewPetInfoRN"/>
+            <oa:spacer id="spacer5" height="20"/>
+            <oa:defaultDoubleColumn id="DistributorInformation" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewDistributorRN"/>
+            <oa:spacer id="spacer6" height="20"/>
+            <oa:defaultSingleColumn id="DealerInformation" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewDealerRN"/>
+            <oa:spacer id="spacer7" height="20"/>
+            <oa:defaultDoubleColumn id="ApproverInformation" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewApproverRN"/>
+            <oa:spacer id="spacer8" height="20"/>
+            <oa:pageButtonBar id="PageButtons" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewBatchPageButtonsRN"/>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/ifupgrades/util/RskUtilsRN"/>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

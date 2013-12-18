@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="PetBreedDropdownVO"
+   SelectList="RscIfbDropdownsEO.ITEM_ID, 
+       RscIfbDropdownsEO.ITEM_VALUE, 
+       RscIfbDropdownsEO.TABLE_ID, 
+       RscIfbDropdownsEO.ROWID"
+   FromList="RSC_IFB_UPGRADES_DROPDOWNS RscIfbDropdownsEO"
+   BindingStyle="Oracle"
+   CustomQuery="false"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetBreedDropdownVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <EntityUsage
+      Name="RscIfbDropdownsEO"
+      Entity="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects.RscIfbDropdownsEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="ItemId"
+      EntityAttrName="ItemId"
+      EntityUsage="RscIfbDropdownsEO"
+      AliasName="ITEM_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ItemValue"
+      Precision="200"
+      EntityAttrName="ItemValue"
+      EntityUsage="RscIfbDropdownsEO"
+      AliasName="ITEM_VALUE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="TableId"
+      EntityAttrName="TableId"
+      EntityUsage="RscIfbDropdownsEO"
+      AliasName="TABLE_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RowID"
+      IsUpdateable="false"
+      EntityAttrName="RowID"
+      EntityUsage="RscIfbDropdownsEO"
+      AliasName="ROWID" >
+   </ViewAttribute>
+</ViewObject>

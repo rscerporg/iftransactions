@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" windowTitle="Define Pricing Level For Customer(s)" amDefName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.SetupsAM" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.admin.webui.DefineCustomerPricingLevelPGCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:pageButtonBar id="PageButtonsRN">
+               <ui:contents>
+                  <oa:submitButton id="GoToDefinePricingLevelsPGButton" text="Define Upgrades Pricing Levels" prompt="Define Upgrades Pricing Levels">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="GoToDefinePricingLevelsPG" id="fireAction4"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:spacer id="spacer11" width="25"/>
+                  <oa:submitButton id="RefreshButton" text="Refresh Page" prompt="Refresh Page">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="RefreshThisPage" id="fireAction1"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:spacer id="spacer111" width="25"/>
+                  <oa:exportButton id="ExportToExcelButton" exportAllRows="true" viewName="CustomerPricingLevelsVO1" text="Export To Excel"/>
+               </ui:contents>
+            </oa:pageButtonBar>
+            <oa:header id="DefineCustomerPricingLevelsRN" text="Define Customer Pricing Level">
+               <ui:contents>
+                  <oa:spacer id="Spacer111" height="15"/>
+                  <oa:table id="CustomerPricingLevelsTableRN" shortDesc="Customer Pricing Levels">
+                     <ui:contents>
+                        <oa:formValue id="CustomerPartyId" dataType="NUMBER" prompt="CustomerPartyId" viewName="CustomerPricingLevelsVO1" viewAttr="CustomerPartyId"/>
+                        <oa:messageLovInput id="CustomerNameDisp" viewName="CustomerPricingLevelsVO1" viewAttr="CustomerName" prompt="Customer Name" externalListOfValues="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CustomerLovRN" columns="50" required="yes">
+                           <lovMappings>
+                              <lovMap id="lovMap1" lovItem="PartyName" resultTo="CustomerNameDisp" criteriaFrom="CustomerNameDisp"/>
+                              <lovMap id="lovMap2" lovItem="PartyId" resultTo="CustomerPartyId"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageChoice id="PricingLevelDisp" viewName="CustomerPricingLevelsVO1" viewAttr="PricingLevelId" prompt="Pricing Level" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.AvailablePricingLevelsVO" pickListDispAttr="Pricingleveldisplayed" pickListValAttr="Pricinglevelid" required="yes" cellNoWrapFormat="true" allowBlankValue="false"/>
+                     </ui:contents>
+                     <ui:tableActions>
+                        <oa:flowLayout id="TableActionRN">
+                           <ui:contents>
+                              <oa:button id="AddRowToTableButton1" text="Add Row" prompt="Add Row">
+                                 <ui:primaryClientAction>
+                                    <ui:firePartialAction event="AddRowToDefineCustomerPricingLevelTable" id="firePartialAction11"/>
+                                 </ui:primaryClientAction>
+                              </oa:button>
+                              <oa:spacer id="Spacer11" width="25"/>
+                              <oa:button id="DeleteRowsButton1" text="Delete Rows" prompt="Delete Rows"/>
+                              <oa:spacer id="Spacer21" width="25"/>
+                              <oa:button id="SaveChangesButton1" text="Save Changes" prompt="Save Changes">
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction event="SaveChanges" id="fireAction3"/>
+                                 </ui:primaryClientAction>
+                              </oa:button>
+                           </ui:contents>
+                        </oa:flowLayout>
+                     </ui:tableActions>
+                  </oa:table>
+               </ui:contents>
+            </oa:header>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/ifupgrades/util/RskUtilsRN"/>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

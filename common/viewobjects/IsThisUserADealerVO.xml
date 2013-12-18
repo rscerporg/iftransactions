@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="IsThisUserADealerVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.IsThisUserADealerVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT RSC_IFB_OSS_UPGRADES_PKG.IS_USER_A_DEALER(:1) IS_A_DEALER FROM DUAL
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <ViewAttribute
+      Name="IsADealer"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="IS_A_DEALER"
+      Expression="IS_A_DEALER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

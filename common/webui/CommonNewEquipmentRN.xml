@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:header version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" text="Equipment" standalone="false" rendered="true" scope="/">
+   <ui:contents>
+      <oa:defaultSingleColumn text="Old Equipment" id="OldEquipmentRN" rendered="true">
+         <ui:contents>
+            <oa:table id="IFBEquipmentTableRN" text="IFB Equipment" blockSize="500" shortDesc="IFB Equipment" rendered="true">
+               <ui:contents>
+                  <oa:messageTextInput id="TradeInItemSerialNum" dataType="VARCHAR2" prompt="Serial #" viewName="NewRscItemsInVO1" viewAttr="TradeInItemSerialNum" maximumLength="2000" columns="25" required="yes">
+                     <ui:primaryClientAction>
+                        <ui:firePartialAction event="TradeInItemEntered" id="firePartialAction15"/>
+                     </ui:primaryClientAction>
+                  </oa:messageTextInput>
+                  <oa:messageTextInput id="TradeInItemModelName" dataType="VARCHAR2" prompt="Model" viewName="NewRscItemsInVO1" viewAttr="TradeInItemModelName" maximumLength="2000" columns="50"/>
+                  <oa:formValue id="BatchId" dataType="NUMBER" prompt="BatchId" viewName="NewRscItemsInVO1" viewAttr="BatchId"/>
+               </ui:contents>
+               <ui:tableActions>
+                  <oa:flowLayout id="region1">
+                     <ui:contents>
+                        <oa:button id="AddRowToTableButton1" text="Add Row" prompt="Add Row">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="AddRowToIFBEquipmentTable" id="firePartialAction13"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                        <oa:spacer id="spacertable1" width="25"/>
+                        <oa:button id="DeleteRowFromTableButton1" text="Delete Row" prompt="Delete Row">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="DeleteRowFromIFBEquipmentTable" id="firePartialAction12"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                     </ui:contents>
+                  </oa:flowLayout>
+               </ui:tableActions>
+               <ui:tableSelection>
+                  <oa:multipleSelection id="multipleSelection1" viewName="NewRscItemsInVO1" viewAttr="Transient1"/>
+               </ui:tableSelection>
+            </oa:table>
+            <oa:spacer id="spacer005" height="20"/>
+            <oa:table id="OtherBrandEquipmentTableRN" text="Other Brand" blockSize="500" shortDesc="Other Brand" rendered="true">
+               <ui:contents>
+                  <oa:messageTextInput id="TradeInItemMfg" dataType="VARCHAR2" prompt="Manufacturer" viewName="NewNonRscItemsInVO1" viewAttr="TradeInItemMfg" maximumLength="2000" required="yes"/>
+                  <oa:messageTextInput id="TradeInItemType" dataType="VARCHAR2" prompt="Type" viewName="NewNonRscItemsInVO1" viewAttr="TradeInItemType" maximumLength="2000"/>
+                  <oa:messageTextInput id="TradeInItemModelName2" dataType="VARCHAR2" prompt="Model" viewName="NewNonRscItemsInVO1" viewAttr="TradeInItemModelName" maximumLength="2000"/>
+                  <oa:formValue id="BatchId1" dataType="NUMBER" prompt="BatchId" viewName="NewNonRscItemsInVO1" viewAttr="BatchId"/>
+               </ui:contents>
+               <ui:tableActions>
+                  <oa:flowLayout id="region2">
+                     <ui:contents>
+                        <oa:button id="AddRowToTableButton2" text="Add Row" prompt="Add Row">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="AddRowToOtherBrandEquipmentTable" id="firePartialAction14"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                        <oa:spacer id="spacertable2" width="25"/>
+                        <oa:button id="DeleteRowFromTableButton2" text="Delete Row" prompt="Delete Row">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="DeleteRowFromOtherBrandEquipmentTable" id="firePartialAction11"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                     </ui:contents>
+                  </oa:flowLayout>
+               </ui:tableActions>
+               <ui:tableSelection>
+                  <oa:multipleSelection id="multipleSelection2" viewName="NewNonRscItemsInVO1" viewAttr="Transient1"/>
+               </ui:tableSelection>
+            </oa:table>
+         </ui:contents>
+      </oa:defaultSingleColumn>
+      <oa:defaultDoubleColumn text="New Equipment" id="NewQuipmentRN" rendered="true">
+         <ui:contents>
+            <oa:table id="NewItemsInfoTableRN" text="Enter model &amp; serial number of new IFB equipment" blockSize="500" shortDesc="Enter model &amp; serial number of new IFB equipment">
+               <ui:contents>
+                  <oa:messageTextInput id="ReplacementItemSerial" dataType="VARCHAR2" prompt="Serial #" viewName="NewRscItemsOutVO1" viewAttr="ReplacementItemSerialNum" maximumLength="2000" columns="50" cellNoWrapFormat="true" required="yes">
+                     <ui:primaryClientAction>
+                        <ui:firePartialAction event="ReplacementItemSerialEntered" id="firePartialAction16"/>
+                     </ui:primaryClientAction>
+                  </oa:messageTextInput>
+                  <oa:messageTextInput id="ReplacementItemModelName" dataType="VARCHAR2" prompt="Model" viewName="NewRscItemsOutVO1" viewAttr="ReplacementItemModelName" maximumLength="2000" columns="50" cellNoWrapFormat="true"/>
+                  <oa:formValue id="BatchId2" dataType="NUMBER" prompt="BatchId" viewName="NewRscItemsOutVO1" viewAttr="BatchId"/>
+                  <oa:messageTextInput id="UpgradeCreditValue" viewName="NewRscItemsOutVO1" viewAttr="UpgradeCreditValue" prompt="Upgrade Credit Eligible"/>
+               </ui:contents>
+               <ui:tableActions>
+                  <oa:flowLayout id="region3">
+                     <ui:contents>
+                        <oa:button id="AddRowToTableButton3" text="Add Row" prompt="Add Row">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="AddRowToNewItemsInfoTable" id="firePartialAction151"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                        <oa:spacer id="spacertable3" width="25"/>
+                        <oa:button id="DeleteRowFromTableButton3" text="Delete Row" prompt="Delete Row">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="DeleteRowFromNewItemsInfoTable" id="firePartialAction1"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                     </ui:contents>
+                  </oa:flowLayout>
+               </ui:tableActions>
+               <ui:tableSelection>
+                  <oa:multipleSelection id="multipleSelection3" viewName="NewRscItemsOutVO1" viewAttr="Transient1"/>
+               </ui:tableSelection>
+            </oa:table>
+         </ui:contents>
+      </oa:defaultDoubleColumn>
+   </ui:contents>
+</oa:header>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:listOfValues version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" amDefName="oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.CustomerLovAM" scope="/">
+   <ui:contents>
+      <oa:table name="CustomerLovRN" id="CustomerLovRN" shortDesc="Customer Info">
+         <ui:contents>
+            <oa:messageStyledText id="AccountNumber" viewName="CustomerLovVO1" viewAttr="AccountNumber" prompt="Account Number" queryable="false"/>
+            <oa:messageStyledText id="PartyId" viewName="CustomerLovVO1" viewAttr="PartyId" prompt="Party Id" queryable="true"/>
+            <oa:messageStyledText id="PartyNumber" viewName="CustomerLovVO1" viewAttr="PartyNumber" prompt="Party Number" queryable="true"/>
+            <oa:messageStyledText id="PartyName" viewName="CustomerLovVO1" viewAttr="PartyName" prompt="Party Name" queryable="true"/>
+         </ui:contents>
+      </oa:table>
+   </ui:contents>
+</oa:listOfValues>

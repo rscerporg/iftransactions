@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:header version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" text="Customer Information" standalone="false" scope="/">
+   <ui:contents>
+      <oa:messageComponentLayout id="CustomerInfoFields" columns="3" rows="3" width="50%">
+         <ui:contents>
+            <oa:messageStyledText id="CustomerName1" prompt="Name" viewName="CurrentBatchVO1" viewAttr="CustInfoName" maximumLength="200" required="no" styleClass="OraDataText"/>
+            <oa:messageStyledText id="CustomerAddress1" prompt="Address" rows="3" columns="22" viewName="CurrentBatchVO1" viewAttr="CustInfoAddress1" maximumLength="200" styleClass="OraDataText"/>
+            <oa:messageStyledText id="BusinessName1" viewName="CurrentBatchVO1" viewAttr="AdditionalInfo2" prompt="Business Name" maximumLength="2000" styleClass="OraDataText"/>
+            <oa:messageStyledText id="CustomerCity1" prompt="City" viewName="CurrentBatchVO1" viewAttr="CustInfoCity" maximumLength="200" styleClass="OraDataText"/>
+            <oa:messageStyledText id="CustomerState1" prompt="State" viewName="CurrentBatchVO1" viewAttr="CustInfoState" maximumLength="20" styleClass="OraDataText"/>
+            <oa:messageStyledText id="CustomerZip1" prompt="Zip" viewName="CurrentBatchVO1" viewAttr="CustInfoZip" styleClass="OraDataText"/>
+            <oa:messageStyledText id="CustomerFax1" prompt="Fax" viewName="CurrentBatchVO1" viewAttr="CustInfoFax" styleClass="OraDataText"/>
+            <oa:messageStyledText id="CustomerEmail1" prompt="Email" viewName="CurrentBatchVO1" viewAttr="CustInfoEmail" maximumLength="2000" required="no" styleClass="OraDataText"/>
+            <oa:messageStyledText id="CustomerPhone1" prompt="Phone" viewName="CurrentBatchVO1" viewAttr="CustInfoPhone" tipType="none" required="no" styleClass="OraDataText"/>
+         </ui:contents>
+      </oa:messageComponentLayout>
+   </ui:contents>
+</oa:header>

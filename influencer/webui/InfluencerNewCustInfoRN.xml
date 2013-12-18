@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:header version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" text="Customer Information" standalone="false" scope="/">
+   <ui:contents>
+      <oa:messageComponentLayout id="CustomerInfoFields" columns="3" rows="3" width="50%">
+         <ui:contents>
+            <oa:messageTextInput id="CustomerName1" prompt="Name" viewName="NewBatchVO1" viewAttr="CustInfoName" maximumLength="200" required="uiOnly"/>
+            <oa:messageTextInput id="CustomerAddress1" prompt="Address" rows="3" columns="22" viewName="NewBatchVO1" viewAttr="CustInfoAddress1" maximumLength="200"/>
+            <oa:messageTextInput id="BusinessName1" viewName="NewBatchVO1" viewAttr="AdditionalInfo2" prompt="Business Name" maximumLength="2000"/>
+            <oa:messageTextInput id="CustomerCity1" prompt="City" viewName="NewBatchVO1" viewAttr="CustInfoCity" maximumLength="200"/>
+            <oa:messageTextInput id="CustomerState1" prompt="State" viewName="NewBatchVO1" viewAttr="CustInfoState" maximumLength="20"/>
+            <oa:messageTextInput id="CustomerZip1" prompt="Zip" viewName="NewBatchVO1" viewAttr="CustInfoZip"/>
+            <oa:messageTextInput id="CustomerFax1" prompt="Fax" viewName="NewBatchVO1" viewAttr="CustInfoFax"/>
+            <oa:messageTextInput id="CustomerEmail1" prompt="Email" viewName="NewBatchVO1" viewAttr="CustInfoEmail" maximumLength="2000" required="uiOnly"/>
+            <oa:messageTextInput id="CustomerPhone1" prompt="Phone" viewName="NewBatchVO1" viewAttr="CustInfoPhone" tipType="shortTip" tipMessageName="RSC_OSS_IFB_PHONE_FORMAT" tipMessageAppShortName="PO" required="uiOnly"/>
+         </ui:contents>
+      </oa:messageComponentLayout>
+   </ui:contents>
+</oa:header>

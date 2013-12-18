@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+
+<AppModule
+   Name="BatchSummaryAM"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchSummaryAMImpl"
+   LoadComponentsLazily="true" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_deployType" Value="0" />
+   </DesignTime>
+   <ViewUsage
+      Name="DealerViewBatchSummaryVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.DealerViewBatchSummaryVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="IsThisUserADealerVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.IsThisUserADealerVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="IsThisUserADistributorVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.IsThisUserADistributorVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="CurrentBatchVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.CurrentBatchVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="RscItemsInVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.RscItemsInVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="RscItemsOutVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.RscItemsOutVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="NonRscItemsInVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NonRscItemsInVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="TransientYesNoAndDropdownsVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.influencer.viewobjects.TransientYesNoAndDropdownsVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="GetDropDownForTableIdandItemIdVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.GetDropDownForTableIdandItemIdVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MBTransientYesNoAndDropdownsVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.moneyback.viewobjects.MBTransientYesNoAndDropdownsVO" >
+   </ViewUsage>
+</AppModule>

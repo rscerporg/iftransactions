@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="viewobjects"
+   SeparateXMLFiles="true"
+   PackageName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_ejbPackage" Value="false" />
+   </DesignTime>
+   <Containee
+      Name="GetApproverInfoForThisBatchVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.GetApproverInfoForThisBatchVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NextApproverForThisBatch"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NextApproverForThisBatch"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="CheckForDuplicateSerialNumberVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.CheckForDuplicateSerialNumberVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="CustomerPricingLevelsVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.CustomerPricingLevelsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="DealerViewBatchSummaryVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.DealerViewBatchSummaryVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="GetCreditForThisUserVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.GetCreditForThisUserVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="GetProductNameFromProductIdVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.GetProductNameFromProductIdVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="IsThisUserADealerVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.IsThisUserADealerVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="IsThisUserADistributorVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.IsThisUserADistributorVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ItemLovVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.ItemLovVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NewSerialNumberFormatVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewSerialNumberFormatVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="TransactionsPricingInfoVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.TransactionsPricingInfoVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="RscItemsInVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.RscItemsInVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NewRscItemsInVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewRscItemsInVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NewBatchVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewBatchVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="CurrentBatchVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.CurrentBatchVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NewNonRscItemsInVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewNonRscItemsInVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NewRscItemsOutVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewRscItemsOutVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NonRscItemsInVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NonRscItemsInVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="RscItemsOutVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.RscItemsOutVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="PetinfoBreedDropdownVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetinfoBreedDropdownVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="PetinfoSexDropdownVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetinfoSexDropdownVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="GetDropDownForTableIdandItemIdVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.GetDropDownForTableIdandItemIdVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="LPTypeDropDownVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.LPTypeDropDownVO"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

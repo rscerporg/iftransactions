@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:listOfValues version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" scope="/" amDefName="oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.ItemLovAM">
+   <ui:contents>
+      <oa:table name="ItemLovRN" id="ItemsLovRN" amDefName="oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.ItemLovAM" shortDesc="Items Lov RN">
+         <ui:contents>
+            <oa:formValue id="InventoryItemId" dataType="NUMBER" prompt="InventoryItemId" viewName="ItemLovVO1" viewAttr="InventoryItemId" queryable="false"/>
+            <oa:messageStyledText id="Segment1" dataType="VARCHAR2" prompt="Segment1" viewName="ItemLovVO1" viewAttr="Segment1" maximumLength="40" queryable="true"/>
+            <oa:messageStyledText id="Description" dataType="VARCHAR2" prompt="Description" viewName="ItemLovVO1" viewAttr="Description" maximumLength="240"/>
+            <oa:messageStyledText id="LongDescription" dataType="VARCHAR2" prompt="LongDescription" viewName="ItemLovVO1" viewAttr="LongDescription" maximumLength="4000"/>
+         </ui:contents>
+      </oa:table>
+   </ui:contents>
+</oa:listOfValues>

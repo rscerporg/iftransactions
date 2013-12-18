@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="CreateBatchTypeVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.CreateBatchTypeVORowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.CreateBatchTypeVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   FetchMode="FETCH_AS_NEEDED"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select 'Upgrade' as CreateBatchType from dual
+union
+select 'Trade In' as CreateBatchType from dual
+union
+select 'Influencer' as CreateBatchType from dual
+union
+select 'Money Back' as CreateBatchType from dual
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <ViewAttribute
+      Name="Createbatchtype"
+      IsPersistent="false"
+      Precision="10"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CREATEBATCHTYPE"
+      Expression="CREATEBATCHTYPE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

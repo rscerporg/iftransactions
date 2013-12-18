@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" windowTitle="Pending Credits Issue" amDefName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.RscIFAdminApprovalsAM" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.admin.webui.IFTransactionsAdminIssueCreditsSummaryPGCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:advancedTable id="PendingCreditsGenerationTableRN" viewName="BatchesPendingCreditIssueVO1" tableBanding="rowBanding" blockSize="500">
+               <ui:contents>
+                  <oa:column id="BatchIdHdr" bandingShade="dark">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="sortableHeader1" prompt="Batch Id" sortByViewAttr="BatchId" sortState="yes"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="BatchIdItem" viewAttr="BatchId"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="DealerNameHdr" bandingShade="light">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="sortableHeader2" sortByViewAttr="DealerName" prompt="Dealer Name" sortState="yes"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="DealerNameItem" viewAttr="DealerName"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="DistributorNameHdr" bandingShade="dark">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="sortableHeader3" sortByViewAttr="DistributorName" sortState="yes" prompt="Distributor Name"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="DistributorNameItem" viewAttr="DistributorName"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="EligibleUpgradeCreditHdr" bandingShade="light">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="sortableHeader4" sortByViewAttr="Eligiblecredit" sortState="yes" prompt="Eligible Credit"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="EligibleUpgradeCreditItem" viewAttr="Eligiblecredit"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="SalesCreditNumberIssued" bandingShade="dark" columnDataFormat="textFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="sortableHeader41" sortState="yes" prompt="Sales Credit Number" sortByViewAttr="AdditionalInfo15"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageTextInput id="SalesCreditNumberIssuedItem" viewAttr="AdditionalInfo15" prompt="Sales Credit Number" required="uiOnly"/>
+                     </ui:contents>
+                  </oa:column>
+               </ui:contents>
+               <ui:tableSelection>
+                  <oa:multipleSelection id="multipleSelection1" viewAttr="Transient1"/>
+               </ui:tableSelection>
+               <ui:tableActions>
+                  <oa:rowLayout id="TableActionsRN">
+                     <ui:contents>
+                        <oa:submitButton id="SalesCreditIssuedButton" text="Sales Credit Approved" prompt="Sales Credit Approved">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="SalesCreditApproved" id="fireAction1"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                        <oa:spacer id="spacer1" width="25"/>
+                        <oa:submitButton id="SalesCreditRejectedButton" text="Sales Credit Rejected" prompt="Sales Credit Rejected">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="SalesCreditRejected" id="fireAction2"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                        <oa:spacer id="spacer2" width="25"/>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:tableActions>
+            </oa:advancedTable>
+            <oa:pageButtonBar id="PageButtonsRN">
+               <ui:contents>
+                  <oa:submitButton id="RefreshButton" text="Refresh Page" prompt="Refresh Page">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="RefreshThisPage" id="fireAction11"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:spacer id="spacer111" width="25"/>
+                  <oa:exportButton id="ExportToExcelButton" exportAllRows="true" viewName="BatchesPendingCreditIssueVO1" text="Export To Excel"/>
+               </ui:contents>
+            </oa:pageButtonBar>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/ifupgrades/util/RskUtilsRN"/>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

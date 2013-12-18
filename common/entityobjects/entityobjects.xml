@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="entityobjects"
+   SeparateXMLFiles="true"
+   PackageName="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_ejbPackage" Value="false" />
+   </DesignTime>
+   <Containee
+      Name="RscIfbTransactionsBatchEO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects.RscIfbTransactionsBatchEO"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="RscIfbTransactionsItemsInEO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects.RscIfbTransactionsItemsInEO"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="RscIfbTransactionsCustPriceLvlEO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects.RscIfbTransactionsCustPriceLvlEO"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="RscIfbTransactionsPricingInfoEO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects.RscIfbTransactionsPricingInfoEO"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="RscIfbTransactionsSerialFmtsEO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects.RscIfbTransactionsSerialFmtsEO"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="RscIfbTransactionsItemOutEO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects.RscIfbTransactionsItemOutEO"
+      ObjectType="Entity" >
+   </Containee>
+</JboPackage>

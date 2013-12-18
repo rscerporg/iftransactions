@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:rowLayout version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" hAlign="center" scope="/">
+   <ui:contents>
+      <oa:cellFormat id="BatchTypeLayout" hAlign="center">
+         <ui:contents>
+            <oa:spacer id="spacer1" height="30"/>
+            <oa:messageComponentLayout id="BatchTypeSubLayout" rows="1" columns="1" fieldWidth="50%">
+               <ui:contents>
+                  <oa:messageChoice id="BatchType" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.CreateBatchTypeVO" pickListDispAttr="Createbatchtype" pickListValAttr="Createbatchtype" prompt="Batch Type" required="yes" allowBlankValue="false" dataType="VARCHAR2" viewName="CreateBatchTypeVO1" viewAttr="Createbatchtype"/>
+               </ui:contents>
+            </oa:messageComponentLayout>
+            <oa:spacer id="spacer2" height="40"/>
+            <oa:submitButton id="SubmitButton" text="Submit" prompt="Submit">
+               <ui:primaryClientAction>
+                  <ui:fireAction event="submit"/>
+               </ui:primaryClientAction>
+            </oa:submitButton>
+         </ui:contents>
+      </oa:cellFormat>
+   </ui:contents>
+</oa:rowLayout>

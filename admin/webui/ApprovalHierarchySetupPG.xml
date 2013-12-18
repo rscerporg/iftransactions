@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" amDefName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.SetupsAM" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.admin.webui.ApprovalHierarchySetupPGCO" windowTitle="Setup Approval Hierarchy">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="HeaderRN" text="Approvals Requestor &lt;-> Approvals Provider Definitions">
+               <ui:contents>
+                  <oa:spacer id="Spacer1" height="25"/>
+                  <oa:table id="ApprovalMappingsTableRN" text="" shortDesc="Approvals Requestor-Provider Mapping" blockSize="500">
+                     <ui:contents>
+                        <oa:messageLovInput id="ApprovalRequestor" dataType="VARCHAR2" prompt="Approval Requestor" viewName="NewRscIfbTransactionsApprvDefnVO1" viewAttr="ApprovalRequestor" maximumLength="2000" externalListOfValues="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CustomerLovRN" columns="50" sortState="yes" initSortSeq="first" required="uiOnly">
+                           <lovMappings>
+                              <lovMap id="lovMap1" lovItem="PartyName" resultTo="ApprovalRequestor" criteriaFrom="ApprovalRequestor"/>
+                              <lovMap id="lovMap4" lovItem="PartyId" resultTo="ApprovalRequestorPartyId"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageLovInput id="ApprovalProvider" dataType="VARCHAR2" prompt="Approval Provider" viewName="NewRscIfbTransactionsApprvDefnVO1" viewAttr="ApprovalProvider" maximumLength="2000" externalListOfValues="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CustomerLovRN" columns="50" sortState="yes" required="uiOnly">
+                           <lovMappings>
+                              <lovMap id="lovMap2" lovItem="PartyName" resultTo="ApprovalProvider" criteriaFrom="ApprovalProvider"/>
+                              <lovMap id="lovMap3" resultTo="ApprovalProviderPartyId" lovItem="PartyId"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:formValue id="ApprovalRequestorPartyId" prompt="Approval Requestor Party Id" viewName="NewRscIfbTransactionsApprvDefnVO1" viewAttr="ApprovalRequestorPartyId"/>
+                        <oa:formValue id="ApprovalProviderPartyId" prompt="Approval Provider Party Id" viewName="NewRscIfbTransactionsApprvDefnVO1" viewAttr="ApprovalProviderPartyId"/>
+                     </ui:contents>
+                     <ui:tableActions>
+                        <oa:flowLayout id="TableButtonsRN">
+                           <ui:contents>
+                              <oa:button id="AddRowButton" text="Add Row" prompt="Add Row">
+                                 <ui:primaryClientAction>
+                                    <ui:firePartialAction event="AddRow" id="firePartialAction1"/>
+                                 </ui:primaryClientAction>
+                              </oa:button>
+                              <oa:spacer id="item1" width="25"/>
+                              <oa:button id="SaveButton" text="Save Changes" prompt="Save Changes">
+                                 <ui:primaryClientAction>
+                                    <ui:firePartialAction event="SaveChanges" id="firePartialAction2"/>
+                                 </ui:primaryClientAction>
+                              </oa:button>
+                              <oa:spacer id="item2" width="25"/>
+                              <oa:button id="DeleteRows" text="Delete Row(s)" prompt="Delete Row(s)">
+                                 <ui:primaryClientAction>
+                                    <ui:firePartialAction event="DeleteRows" id="firePartialAction3"/>
+                                 </ui:primaryClientAction>
+                              </oa:button>
+                           </ui:contents>
+                        </oa:flowLayout>
+                     </ui:tableActions>
+                     <ui:tableSelection>
+                        <oa:multipleSelection id="TableSelector" viewName="NewRscIfbTransactionsApprvDefnVO1" viewAttr="Transient1"/>
+                     </ui:tableSelection>
+                  </oa:table>
+               </ui:contents>
+            </oa:header>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/RskUtilsRN"/>
+            <oa:pageButtonBar id="PageButtonsRN">
+               <ui:contents>
+                  <oa:submitButton id="RefreshButton" text="Refresh Page" prompt="Refresh Page">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="RefreshThisPage" id="fireAction1"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:spacer id="spacer11" width="25"/>
+                  <oa:exportButton id="ExportToExcelButton" exportAllRows="true" viewName="NewRscIfbTransactionsApprvDefnVO1" text="Export To Excel"/>
+               </ui:contents>
+            </oa:pageButtonBar>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

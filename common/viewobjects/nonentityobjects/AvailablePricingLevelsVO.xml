@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="AvailablePricingLevelsVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.AvailablePricingLevelsVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select 'Dealer Pricing' PricingLevelDisplayed, '0' PricingLevelId from dual 
+union
+select 'Pricing Level 1' PricingLevelDisplayed, '1' PricingLevelId from dual 
+union
+select 'Pricing Level 2' PricingLevelDisplayed, '2' PricingLevelId from dual 
+union
+select 'Pricing Level 3' PricingLevelDisplayed, '3' PricingLevelId from dual 
+union
+select 'Pricing Level 4' PricingLevelDisplayed, '4' PricingLevelId from dual 
+union
+select 'Pricing Level 5' PricingLevelDisplayed, '5' PricingLevelId from dual
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <ViewAttribute
+      Name="Pricingleveldisplayed"
+      IsPersistent="false"
+      Precision="15"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PRICINGLEVELDISPLAYED"
+      Expression="PRICINGLEVELDISPLAYED"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="15" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Pricinglevelid"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="CHAR"
+      AliasName="PRICINGLEVELID"
+      Expression="PRICINGLEVELID"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

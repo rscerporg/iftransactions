@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="viewobjects"
+   SeparateXMLFiles="true"
+   PackageName="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_ejbPackage" Value="false" />
+   </DesignTime>
+   <Containee
+      Name="ApproverViewBatchesPendingApprovalSummaryVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.ApproverViewBatchesPendingApprovalSummaryVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ApproverViewBatchesSummaryReadOnlyViewVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.ApproverViewBatchesSummaryReadOnlyViewVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NewRscIfbTransactionsApprvDefnVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.NewRscIfbTransactionsApprvDefnVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="NewRscIfbTransactionsDealrDistDefnVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.NewRscIfbTransactionsDealrDistDefnVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="BatchesPendingCreditIssueVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.BatchesPendingCreditIssueVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="BatchesPendingIFBApprovalVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.BatchesPendingIFBApprovalVO"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

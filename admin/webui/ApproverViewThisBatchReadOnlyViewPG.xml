@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" windowTitle="Approve This Batch - Batch Id" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.admin.webui.ApproverViewThisBatchReadOnlyViewPGCO" amDefName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.BatchApprovalAM">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:defaultDoubleColumn id="CustomerInformationRN" text="Customer Information">
+               <ui:contents>
+                  <oa:messageStyledText id="CustomerName" prompt="Name" viewName="CurrentBatchVO1" viewAttr="CustInfoName" maximumLength="200" styleClass="OraDataText"/>
+                  <oa:spacer id="item1"/>
+                  <oa:messageStyledText id="CustomerAddress" prompt="Address" rows="2" columns="21" viewName="CurrentBatchVO1" viewAttr="CustInfoAddress1" maximumLength="200" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="CustomerPhone" prompt="Phone" viewName="CurrentBatchVO1" viewAttr="CustInfoPhone" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="CustomerCity" prompt="City" viewName="CurrentBatchVO1" viewAttr="CustInfoCity" maximumLength="200" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="CustomerFax" prompt="Fax" viewName="CurrentBatchVO1" viewAttr="CustInfoFax" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="CustomerState" prompt="State" viewName="CurrentBatchVO1" viewAttr="CustInfoState" maximumLength="20" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="CustomerEmail" prompt="Email" viewName="CurrentBatchVO1" viewAttr="CustInfoEmail" maximumLength="2000" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="CustomerZip" prompt="Zip" viewName="CurrentBatchVO1" viewAttr="CustInfoZip" styleClass="OraDataText"/>
+               </ui:contents>
+            </oa:defaultDoubleColumn>
+            <oa:spacer id="spacer001" height="20"/>
+            <oa:defaultDoubleColumn id="PurchaseInfoRN" text="Purchase Information">
+               <ui:contents>
+                  <oa:messageStyledText id="PurchaseDate" prompt="Date of upgrade installation" dataType="DATE" viewName="CurrentBatchVO1" viewAttr="PurchaseDate" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="PurchasePlace" prompt="Place of Purchase" viewName="CurrentBatchVO1" viewAttr="PurchasePlace" maximumLength="2000" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="PurchaseUpgradeReason" prompt="Reason for Upgrade to Invisible Fence Brand" rows="2" viewName="CurrentBatchVO1" viewAttr="PurchaseUpgradeReason" maximumLength="2000" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="PurchaseUpgradeSource" prompt="How did customer hear about Invisible Fence Brand?" rows="2" viewName="CurrentBatchVO1" viewAttr="PurchaseUpgradeSource" maximumLength="2000" styleClass="OraDataText"/>
+                  <oa:messageChoice id="BatchType" viewName="CurrentBatchVO1" viewAttr="AdditionalInfo1" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.CreateBatchTypeVO" pickListViewName="" pickListDispAttr="Createbatchtype" pickListValAttr="Createbatchtype" prompt="Batch Type" allowBlankValue="false" styleClass="OraDataText" readOnly="true"/>
+               </ui:contents>
+            </oa:defaultDoubleColumn>
+            <oa:spacer id="spacer002" height="20"/>
+            <oa:header id="TradeInInfoRN" text="Trade-In Information">
+               <ui:contents>
+                  <oa:defaultSingleColumn id="OldEquipmentRN" text="Old Equipment">
+                     <ui:contents>
+                        <oa:table id="IFBEquipmentTableRN" text="IFB Equipment Upgraded" blockSize="500" shortDesc="IFB Equipment Upgraded">
+                           <ui:contents>
+                              <oa:messageStyledText id="TradeInItemSerialNum" dataType="VARCHAR2" prompt="Serial #" viewName="RscItemsInVO1" viewAttr="TradeInItemSerialNum" maximumLength="2000"/>
+                              <oa:messageStyledText id="TradeInItemModelName" dataType="VARCHAR2" prompt="Model" viewName="RscItemsInVO1" viewAttr="TradeInItemModelName" maximumLength="2000"/>
+                              <oa:formValue id="BatchId" dataType="NUMBER" prompt="BatchId" viewName="RscItemsInVO1" viewAttr="BatchId"/>
+                           </ui:contents>
+                        </oa:table>
+                        <oa:spacer id="spacer005" height="20"/>
+                        <oa:table id="OtherBrandEquipmentTableRN" text="Other Brand Traded-In" blockSize="500" shortDesc="Other Brand Traded-In">
+                           <ui:contents>
+                              <oa:messageStyledText id="TradeInItemMfg" dataType="VARCHAR2" prompt="Manufacturer" viewName="NonRscItemsInVO1" viewAttr="TradeInItemMfg" maximumLength="2000"/>
+                              <oa:messageStyledText id="TradeInItemType" dataType="VARCHAR2" prompt="Type" viewName="NonRscItemsInVO1" viewAttr="TradeInItemType" maximumLength="2000"/>
+                              <oa:messageStyledText id="TradeInItemModelName2" dataType="VARCHAR2" prompt="Model" viewName="NonRscItemsInVO1" viewAttr="TradeInItemModelName" maximumLength="2000"/>
+                              <oa:formValue id="BatchId1" dataType="NUMBER" prompt="BatchId" viewName="NonRscItemsInVO1" viewAttr="BatchId"/>
+                           </ui:contents>
+                        </oa:table>
+                     </ui:contents>
+                  </oa:defaultSingleColumn>
+                  <oa:defaultDoubleColumn id="NewEquipmentRN" text="New Equipment">
+                     <ui:contents>
+                        <oa:table id="NewItemsInfoTableRN" text="Enter model &amp; serial number of new IFB equipment" blockSize="500" shortDesc="Enter model &amp; serial number of new IFB equipment">
+                           <ui:contents>
+                              <oa:messageStyledText id="ReplacementItemSerial" dataType="VARCHAR2" prompt="Serial #" viewName="RscItemsOutVO1" viewAttr="ReplacementItemSerialNum" maximumLength="2000"/>
+                              <oa:messageStyledText id="ReplacementItemModelName" dataType="VARCHAR2" prompt="Model" viewName="RscItemsOutVO1" viewAttr="ReplacementItemModelName" maximumLength="2000"/>
+                              <oa:formValue id="BatchId2" dataType="NUMBER" prompt="BatchId" viewName="RscItemsOutVO1" viewAttr="BatchId"/>
+                              <oa:messageStyledText id="UpgradeCreditValue" viewName="RscItemsOutVO1" viewAttr="UpgradeCreditValue" prompt="Upgrade Credit Eligible" columns="25" cellNoWrapFormat="true" totalValue="true"/>
+                              <oa:messageStyledText id="AdminComments" viewName="RscItemsOutVO1" viewAttr="AdditionalInfo1" prompt="Approver Comments" maximumLength="2000"/>
+                           </ui:contents>
+                        </oa:table>
+                     </ui:contents>
+                  </oa:defaultDoubleColumn>
+               </ui:contents>
+            </oa:header>
+            <oa:spacer id="spacer004" height="20" rendered="false"/>
+            <oa:defaultDoubleColumn id="DistributorInfoRN" text="Distributor Information" rendered="false">
+               <ui:contents>
+                  <oa:messageStyledText id="DistributorName" prompt="Distributor Name" viewName="CurrentBatchVO1" viewAttr="DistributorName" maximumLength="2000"/>
+                  <oa:formValue id="DistributorId" prompt="Distributor Id" viewName="CurrentBatchVO1" viewAttr="DistributorId"/>
+               </ui:contents>
+            </oa:defaultDoubleColumn>
+            <oa:spacer id="spacer003" height="20"/>
+            <oa:defaultSingleColumn id="DealerInfoRN" text="Dealer Information">
+               <ui:contents>
+                  <oa:messageStyledText id="ClaimSubmissionDate" dataType="DATE" prompt="Submission Date" viewName="CurrentBatchVO1" viewAttr="ClaimSubmissionDate" styleClass="OraDataText"/>
+                  <oa:spacer id="item2"/>
+                  <oa:messageStyledText id="BatchSubmittedBy" prompt="Batch Submitted By" viewName="CurrentBatchVO1" viewAttr="DealerName" maximumLength="2000" styleClass="OraDataText"/>
+                  <oa:formValue id="DealerId" viewName="CurrentBatchVO1" viewAttr="DealerId"/>
+                  <oa:spacer id="item3"/>
+                  <oa:rawText id="item5"/>
+                  <oa:messageStyledText id="DealerSignature" prompt="Dealer Signature" tipType="shortTip" viewName="CurrentBatchVO1" viewAttr="DealerSignature" maximumLength="2000" styleClass="OraDataText"/>
+                  <oa:tip id="item4" text="" styleClass="OraTipText" tipMessageAppShortName="PO" tipMessageName="RSC_OSS_IFB_DEALER_SIGN" rendered="true"/>
+               </ui:contents>
+            </oa:defaultSingleColumn>
+            <oa:spacer id="spacer009" height="20"/>
+            <oa:defaultDoubleColumn id="NextApproverInfoRN" text="Next Approver Information">
+               <ui:contents>
+                  <oa:formValue id="NextApproverId" prompt="Batch Approver" viewName="GetApproverInfoForThisBatchVO1" viewAttr="NextApprvPartyId" rendered="true"/>
+                  <oa:messageStyledText id="NextApproverName" viewName="GetApproverInfoForThisBatchVO1" viewAttr="NextApprvPartyName" prompt="Next Approver" maximumLength="4000" styleClass="OraDataText"/>
+               </ui:contents>
+            </oa:defaultDoubleColumn>
+            <oa:defaultDoubleColumn id="CurrBatchApproverInfoRN" text="Batch Approver Information" rendered="false">
+               <ui:contents>
+                  <oa:formValue id="CurrBatchApproverId" prompt="Batch Approver" viewName="GetApproverInfoForThisBatchVO1" viewAttr="CurrentApprvId" rendered="true"/>
+                  <oa:messageStyledText id="CurrBatchApproverStr" viewName="GetApproverInfoForThisBatchVO1" viewAttr="CurrentApprvName" prompt="Batch Approver" maximumLength="4000" styleClass="OraDataText"/>
+               </ui:contents>
+            </oa:defaultDoubleColumn>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/RskUtilsRN"/>
+            <oa:pageButtonBar id="PageButtonsRN">
+               <ui:contents>
+                  <oa:submitButton id="ReturnToSummaryPageButton" text="Return To Summary Page" prompt="Return To Summary Page">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="ReturnToSummaryPG" id="fireAction1"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+               </ui:contents>
+            </oa:pageButtonBar>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

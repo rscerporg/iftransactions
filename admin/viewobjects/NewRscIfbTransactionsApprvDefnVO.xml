@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="NewRscIfbTransactionsApprvDefnVO"
+   SelectList="RscIfbTransactionsApprvDefnEO.APPROVAL_REQUESTOR, 
+       RscIfbTransactionsApprvDefnEO.APPROVAL_REQUESTOR_PARTY_ID, 
+
+       RscIfbTransactionsApprvDefnEO.APPROVAL_PROVIDER, 
+   
+    RscIfbTransactionsApprvDefnEO.APPROVAL_PROVIDER_PARTY_ID, 
+
+       RscIfbTransactionsApprvDefnEO.CREATED_BY, 
+       RscIfbTransactionsApprvDefnEO.LAST_UPDATE_LOGIN, 
+
+       RscIfbTransactionsApprvDefnEO.LAST_UPDATED_BY, 
+     
+  RscIfbTransactionsApprvDefnEO.CREATION_DATE, 
+       RscIfbTransactionsApprvDefnEO.LAST_UPDATE_DATE"
+   FromList="RSC_IFB_UPGRDS_APPRV_DEFN RscIfbTransactionsApprvDefnEO"
+   BindingStyle="Oracle"
+   CustomQuery="false"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.NewRscIfbTransactionsApprvDefnVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <EntityUsage
+      Name="RscIfbTransactionsApprvDefnEO"
+      Entity="oracle.apps.po.rscapps.oss.iftransactions.admin.entityobjects.RscIfbTransactionsApprvDefnEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="ApprovalRequestor"
+      IsNotNull="true"
+      Precision="2000"
+      EntityAttrName="ApprovalRequestor"
+      EntityUsage="RscIfbTransactionsApprvDefnEO"
+      AliasName="APPROVAL_REQUESTOR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ApprovalRequestorPartyId"
+      EntityAttrName="ApprovalRequestorPartyId"
+      EntityUsage="RscIfbTransactionsApprvDefnEO"
+      AliasName="APPROVAL_REQUESTOR_PARTY_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ApprovalProvider"
+      Precision="2000"
+      EntityAttrName="ApprovalProvider"
+      EntityUsage="RscIfbTransactionsApprvDefnEO"
+      AliasName="APPROVAL_PROVIDER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ApprovalProviderPartyId"
+      EntityAttrName="ApprovalProviderPartyId"
+      EntityUsage="RscIfbTransactionsApprvDefnEO"
+      AliasName="APPROVAL_PROVIDER_PARTY_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="CreatedBy"
+      EntityUsage="RscIfbTransactionsApprvDefnEO"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="RscIfbTransactionsApprvDefnEO"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="RscIfbTransactionsApprvDefnEO"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      EntityAttrName="CreationDate"
+      EntityUsage="RscIfbTransactionsApprvDefnEO"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="RscIfbTransactionsApprvDefnEO"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Transient1"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Transient2"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Transient3"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+</ViewObject>

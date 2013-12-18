@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:header version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" scope="/" standalone="false" text="LP Information">
+   <ui:contents>
+      <oa:messageComponentLayout id="LPInofFields" width="50%">
+         <ui:contents>
+            <oa:messageChoice id="LPUsed" dataType="VARCHAR2" prompt="LP Used:" viewName="NewBatchVO1" viewAttr="LpUsed" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.LPUsedVO" pickListDispAttr="Lpused" pickListValAttr="Lpusedvalue" allowBlankValue="true"/>
+            <oa:messageChoice id="LPType" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.LPTypeDropDownVO" prompt="LP Type:" viewName="NewBatchVO1" viewAttr="LpType" pickListDispAttr="ItemValue" pickListValAttr="ItemId" allowBlankValue="true"/>
+         </ui:contents>
+      </oa:messageComponentLayout>
+   </ui:contents>
+</oa:header>

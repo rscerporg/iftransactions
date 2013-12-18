@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="ItemLovVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.ItemLovVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select tl.inventory_item_id, b.segment1, tl.description, tl.long_description
+from MTL_SYSTEM_ITEMS_TL tl, mtl_system_items_b b
+where tl.ORGANIZATION_ID = 114
+and b.ORGANIZATION_ID = 114
+and tl.inventory_item_id = b.inventory_item_id
+and b.enabled_FLAG = 'Y'
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <ViewAttribute
+      Name="InventoryItemId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="INVENTORY_ITEM_ID"
+      Expression="INVENTORY_ITEM_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Segment1"
+      IsPersistent="false"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SEGMENT1"
+      Expression="SEGMENT1"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Description"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DESCRIPTION"
+      Expression="DESCRIPTION"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LongDescription"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="LONG_DESCRIPTION"
+      Expression="LONG_DESCRIPTION"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

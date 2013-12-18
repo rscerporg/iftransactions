@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="applicationmodules"
+   SeparateXMLFiles="true"
+   PackageName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_ejbPackage" Value="false" />
+   </DesignTime>
+   <Containee
+      Name="BatchApprovalAM"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.BatchApprovalAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="RscIFAdminApprovalsAM"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.RscIFAdminApprovalsAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="SetupsAM"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.SetupsAM"
+      ObjectType="AppModule" >
+   </Containee>
+</JboPackage>

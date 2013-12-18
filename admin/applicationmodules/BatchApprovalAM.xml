@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+
+<AppModule
+   Name="BatchApprovalAM"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.BatchApprovalAMImpl"
+   LoadComponentsLazily="true" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_deployType" Value="0" />
+   </DesignTime>
+   <ViewUsage
+      Name="GetApproverInfoForThisBatchVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.GetApproverInfoForThisBatchVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="NextApproverForThisBatch1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NextApproverForThisBatch" >
+   </ViewUsage>
+   <ViewUsage
+      Name="ApproverViewBatchesSummaryReadOnlyViewVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.ApproverViewBatchesSummaryReadOnlyViewVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="ApproverViewBatchesPendingApprovalSummaryVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.ApproverViewBatchesPendingApprovalSummaryVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="NewRscIfbTransactionsApprvDefnVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.admin.viewobjects.NewRscIfbTransactionsApprvDefnVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="NewRscItemsOutVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewRscItemsOutVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="NonRscItemsInVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NonRscItemsInVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="RscItemsInVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.RscItemsInVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="RscItemsOutVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.RscItemsOutVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="CurrentBatchVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.CurrentBatchVO" >
+   </ViewUsage>
+</AppModule>

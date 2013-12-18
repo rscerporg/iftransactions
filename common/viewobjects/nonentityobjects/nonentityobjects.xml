@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="nonentityobjects"
+   SeparateXMLFiles="true"
+   PackageName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects" >
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_ejbPackage" Value="false" />
+   </DesignTime>
+   <Containee
+      Name="AvailablePricingLevelsVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.AvailablePricingLevelsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="BatteryPlanVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.BatteryPlanVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="CustomerLovVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.CustomerLovVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="CreateBatchTypeVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.CreateBatchTypeVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="PetinfoSpayNeuterVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.PetinfoSpayNeuterVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="VetAgreedToRecommendVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.VetAgreedToRecommendVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="VetReqToBeIncludedVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.VetReqToBeIncludedVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="LPUsedVO"
+      FullName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.LPUsedVO"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

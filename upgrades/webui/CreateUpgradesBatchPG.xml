@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" windowTitle="Create Upgrades Batch" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.common.webui.CreateUpgradesBatchPGCO" amDefName="oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchCreationAM">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:inContextBranding>
+            <oa:formattedText id="PageHeading1" text="" styleClass="CenterTextAlign"/>
+         </ui:inContextBranding>
+         <ui:productBranding>
+            <oa:formattedText id="PageHeading2" text="UPGRADES"/>
+         </ui:productBranding>
+         <ui:contents>
+            <oa:header id="CustomerInformation" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewCustomerInfoRN"/>
+            <oa:spacer id="spacer1" height="20"/>
+            <oa:defaultDoubleColumn id="PurchaseInformation" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewPurchaseInfoRN"/>
+            <oa:spacer id="spacer2" height="20"/>
+            <oa:header id="EquipmentInfo" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewEquipmentRN" text="Trade-In Information"/>
+            <oa:spacer id="spacer3" height="20"/>
+            <oa:defaultDoubleColumn id="DistributorInformation" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewDistributorRN"/>
+            <oa:spacer id="spacer4" height="20"/>
+            <oa:defaultSingleColumn id="DealerInformation" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewDealerRN"/>
+            <oa:spacer id="spacer5" height="20"/>
+            <oa:defaultDoubleColumn id="ApproverInformation" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewApproverRN"/>
+            <oa:pageButtonBar id="PageButtons" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/CommonNewBatchPageButtonsRN"/>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/ifupgrades/util/RskUtilsRN"/>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

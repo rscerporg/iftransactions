@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:defaultDoubleColumn version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" text="Purchase Information" scope="/" standalone="false">
+   <ui:contents>
+      <oa:messageStyledText id="PurchaseDate" prompt="Date of upgrade installation" dataType="DATE" viewName="CurrentBatchVO1" viewAttr="PurchaseDate" styleClass="OraDataText"/>
+      <oa:messageStyledText id="PurchasePlace" prompt="Place of Purchase" viewName="CurrentBatchVO1" viewAttr="PurchasePlace" maximumLength="2000" styleClass="OraDataText"/>
+      <oa:messageStyledText id="PurchaseUpgradeReason" prompt="Reason for Upgrade to Invisible Fence Brand" rows="2" viewName="CurrentBatchVO1" viewAttr="PurchaseUpgradeReason" maximumLength="2000" styleClass="OraDataText"/>
+      <oa:messageStyledText id="PurchaseUpgradeSource" prompt="How did customer hear about Invisible Fence Brand?" rows="2" viewName="CurrentBatchVO1" viewAttr="PurchaseUpgradeSource" maximumLength="2000" styleClass="OraDataText"/>
+   </ui:contents>
+</oa:defaultDoubleColumn>

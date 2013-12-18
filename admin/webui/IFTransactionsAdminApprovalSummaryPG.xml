@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" windowTitle="RSC IFB Transactions Administrator - Batches Pending Approval" amDefName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.RscIFAdminApprovalsAM" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.admin.webui.IFTransactionsAdminApprovalSummaryPGCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:table id="BatchesPendingIFBApprovalTableRN" blockSize="500" text="Batches Pending IFB Approval" shortDesc="Batches Pending IFB Approval">
+               <ui:contents>
+                  <oa:messageStyledText id="BatchId" dataType="NUMBER" prompt="Batch Id" viewName="BatchesPendingIFBApprovalVO1" viewAttr="BatchId" styleClass="OraDataText" sortState="descending" cellNoWrapFormat="true">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="GoToDetailPG" id="fireAction3">
+                           <ui:parameters>
+                              <ui:parameter key="BatchId" value="${oa.current.BatchId}"/>
+                           </ui:parameters>
+                        </ui:fireAction>
+                     </ui:primaryClientAction>
+                  </oa:messageStyledText>
+                  <oa:messageStyledText id="BatchType" dataType="VARCHAR2" prompt="Batch Type" viewName="BatchesPendingIFBApprovalVO1" viewAttr="AdditionalInfo1" sortState="yes" cellNoWrapFormat="true"/>
+                  <oa:messageStyledText id="DealerName" dataType="VARCHAR2" prompt="Dealer Name" viewName="BatchesPendingIFBApprovalVO1" viewAttr="DealerName" maximumLength="2000" cellNoWrapFormat="true" sortState="yes"/>
+                  <oa:messageStyledText id="DistributorName" dataType="VARCHAR2" prompt="Distributor Name" viewName="BatchesPendingIFBApprovalVO1" viewAttr="DistributorName" maximumLength="2000" cellNoWrapFormat="true" sortState="yes"/>
+                  <oa:messageStyledText id="ClaimSubmissionDate" dataType="DATE" prompt="Claim Submission Date" viewName="BatchesPendingIFBApprovalVO1" viewAttr="ClaimSubmissionDate" cellNoWrapFormat="true" sortState="yes"/>
+                  <oa:messageStyledText id="CustInfoName" dataType="VARCHAR2" prompt="Customer Name" viewName="BatchesPendingIFBApprovalVO1" viewAttr="CustInfoName" maximumLength="200" cellNoWrapFormat="true" sortState="yes"/>
+                  <oa:messageStyledText id="CustAddressDisp" dataType="VARCHAR2" prompt="Customer Address" viewName="BatchesPendingIFBApprovalVO1" viewAttr="CustAddressDisp" cellNoWrapFormat="true"/>
+                  <oa:messageStyledText id="NewEquipCount" dataType="VARCHAR2" prompt="# New Equipment" viewName="BatchesPendingIFBApprovalVO1" viewAttr="NewEquipCount" cellNoWrapFormat="true"/>
+                  <oa:messageStyledText id="NewEquipList" dataType="VARCHAR2" prompt="New Equipment" viewName="BatchesPendingIFBApprovalVO1" viewAttr="NewEquipmentsList" cellNoWrapFormat="true"/>
+                  <oa:messageStyledText id="ReplacedRscEquipCount" dataType="VARCHAR2" prompt="# Replacements - Invisible Fence Brand" viewName="BatchesPendingIFBApprovalVO1" viewAttr="ReplacedRscEquipCount" cellNoWrapFormat="true"/>
+                  <oa:messageStyledText id="ReplacedRscEquipList" dataType="VARCHAR2" prompt="Replacements - Invisible Fence Brand" viewName="BatchesPendingIFBApprovalVO1" viewAttr="ReplacedRscEquipList" cellNoWrapFormat="true"/>
+                  <oa:messageStyledText id="ReplacedNonRscEquipCount" dataType="VARCHAR2" prompt="# Replacements - Non RSC" viewName="BatchesPendingIFBApprovalVO1" viewAttr="ReplacedNonRscEquipCount" cellNoWrapFormat="true"/>
+                  <oa:messageStyledText id="ReplacedNonRscEquipList" dataType="VARCHAR2" prompt="Replacements - Non Invisible Fence Brand" viewName="BatchesPendingIFBApprovalVO1" viewAttr="ReplacedNonRscEquipList" cellNoWrapFormat="true"/>
+                  <oa:messageStyledText id="Eligibleupgradecredit" dataType="VARCHAR2" prompt="Eligible Credit" viewName="BatchesPendingIFBApprovalVO1" viewAttr="Eligiblecredit" cellNoWrapFormat="true" totalValue="false"/>
+               </ui:contents>
+               <ui:tableSelection>
+                  <oa:multipleSelection id="multipleSelection1" viewName="BatchesPendingIFBApprovalVO1" viewAttr="Transient1"/>
+               </ui:tableSelection>
+               <ui:tableActions>
+                  <oa:flowLayout id="TableActionsRN">
+                     <ui:contents>
+                        <oa:button id="ApproveBatchButton" text="Approve Batch(es)" prompt="Approve Batch(es)" hAlign="start">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="ApproveBatches" id="fireAction1"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                        <oa:spacer id="spacer1" width="25"/>
+                        <oa:button id="RejectBatchButton" text="Reject Batch(es)" prompt="Reject Batch(es)" hAlign="start">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="RejectBatches" id="fireAction2"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                        <oa:spacer id="spacer2" width="25"/>
+                     </ui:contents>
+                  </oa:flowLayout>
+               </ui:tableActions>
+            </oa:table>
+            <oa:spacer id="Spacer1" height="15"/>
+            <oa:pageButtonBar id="PageButtonsRN">
+               <ui:contents>
+                  <oa:submitButton id="RefreshButton" text="Refresh Page" prompt="Refresh Page">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="RefreshThisPage" id="fireAction11"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:spacer id="spacer111" width="25"/>
+                  <oa:exportButton id="ExportToExcelButton" exportAllRows="true" viewName="BatchesPendingIFBApprovalVO1" text="Export To Excel"/>
+               </ui:contents>
+            </oa:pageButtonBar>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/ifupgrades/util/RskUtilsRN"/>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

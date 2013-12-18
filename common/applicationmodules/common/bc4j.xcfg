@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig>
+   <AppModuleConfigBag>
+      <AppModuleConfig name="CustomerLovAMLocal">
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <DBconnection>jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=tcp)(HOST=exa0201-vip.rsccorp.radiosys.com)(PORT=1547))(ADDRESS=(PROTOCOL=tcp)(HOST=exa0202-vip.rsccorp.radiosys.com)(PORT=1547)))(CONNECT_DATA=(SERVICE_NAME=DEV)))</DBconnection>
+         <password>APPS</password>
+         <JDBCName>RSC_DEV</JDBCName>
+         <jbo.project>IFTransactions</jbo.project>
+         <AppModuleJndiName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.CustomerLovAM</AppModuleJndiName>
+         <user>APPS</user>
+         <java.naming.factory.initial>oracle.jbo.common.JboInitialContextFactory</java.naming.factory.initial>
+         <ApplicationName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.CustomerLovAM</ApplicationName>
+      </AppModuleConfig>
+      <AppModuleConfig name="ItemLovAMLocal">
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <DBconnection>jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=tcp)(HOST=exa0201-vip.rsccorp.radiosys.com)(PORT=1547))(ADDRESS=(PROTOCOL=tcp)(HOST=exa0202-vip.rsccorp.radiosys.com)(PORT=1547)))(CONNECT_DATA=(SERVICE_NAME=DEV)))</DBconnection>
+         <password>APPS</password>
+         <JDBCName>RSC_DEV</JDBCName>
+         <jbo.project>IFTransactions</jbo.project>
+         <AppModuleJndiName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.ItemLovAM</AppModuleJndiName>
+         <user>APPS</user>
+         <java.naming.factory.initial>oracle.jbo.common.JboInitialContextFactory</java.naming.factory.initial>
+         <ApplicationName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.ItemLovAM</ApplicationName>
+      </AppModuleConfig>
+      <AppModuleConfig name="PricingLevelsLovAMLocal">
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <DBconnection>jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=tcp)(HOST=exa0201-vip.rsccorp.radiosys.com)(PORT=1547))(ADDRESS=(PROTOCOL=tcp)(HOST=exa0202-vip.rsccorp.radiosys.com)(PORT=1547)))(CONNECT_DATA=(SERVICE_NAME=DEV)))</DBconnection>
+         <password>APPS</password>
+         <JDBCName>RSC_DEV</JDBCName>
+         <jbo.project>IFTransactions</jbo.project>
+         <AppModuleJndiName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.PricingLevelsLovAM</AppModuleJndiName>
+         <user>APPS</user>
+         <java.naming.factory.initial>oracle.jbo.common.JboInitialContextFactory</java.naming.factory.initial>
+         <ApplicationName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.PricingLevelsLovAM</ApplicationName>
+      </AppModuleConfig>
+      <AppModuleConfig name="BatchTypeAMLocal">
+         <AppModuleJndiName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchTypeAM</AppModuleJndiName>
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>RSC_DEV</JDBCName>
+         <ApplicationName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchTypeAM</ApplicationName>
+         <jbo.project>IFTransactions</jbo.project>
+      </AppModuleConfig>
+      <AppModuleConfig name="BatchCreationAMLocal">
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <DBconnection>jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=tcp)(HOST=exa0201-vip.rsccorp.radiosys.com)(PORT=1547))(ADDRESS=(PROTOCOL=tcp)(HOST=exa0202-vip.rsccorp.radiosys.com)(PORT=1547)))(CONNECT_DATA=(SERVICE_NAME=DEV)))</DBconnection>
+         <password>APPS</password>
+         <JDBCName>RSC_DEV</JDBCName>
+         <jbo.project>IFTransactions</jbo.project>
+         <AppModuleJndiName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchCreationAM</AppModuleJndiName>
+         <user>APPS</user>
+         <java.naming.factory.initial>oracle.jbo.common.JboInitialContextFactory</java.naming.factory.initial>
+         <ApplicationName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchCreationAM</ApplicationName>
+      </AppModuleConfig>
+      <AppModuleConfig name="BatchSummaryAMLocal">
+         <AppModuleJndiName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchSummaryAM</AppModuleJndiName>
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>RSC_DEV</JDBCName>
+         <ApplicationName>oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchSummaryAM</ApplicationName>
+         <jbo.project>IFTransactions</jbo.project>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <ConnectionDefinition name="RSC_DEV">
+      <ENTRY name="JDBC_PORT" value="1521"/>
+      <ENTRY name="ConnectionType" value="JDBC"/>
+      <ENTRY name="HOSTNAME" value="localhost"/>
+      <ENTRY name="DeployPassword" value="true"/>
+      <ENTRY name="user" value="APPS"/>
+      <ENTRY name="ConnectionName" value="RSC_DEV"/>
+      <ENTRY name="URL" value="jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=tcp)(HOST=exa0201-vip.rsccorp.radiosys.com)(PORT=1547))(ADDRESS=(PROTOCOL=tcp)(HOST=exa0202-vip.rsccorp.radiosys.com)(PORT=1547)))(CONNECT_DATA=(SERVICE_NAME=DEV)))"/>
+      <ENTRY name="SID" value="ORCL"/>
+      <ENTRY name="password">
+         <![CDATA[APPS]]>
+      </ENTRY>
+      <ENTRY name="JdbcDriver" value="oracle.jdbc.driver.OracleDriver"/>
+      <ENTRY name="ORACLE_JDBC_TYPE" value="thin"/>
+      <ENTRY name="DeployPassword" value="true"/>
+   </ConnectionDefinition>
+</BC4JConfig>

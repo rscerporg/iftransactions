@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+
+<AppModule
+   Name="BatchCreationAM"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchCreationAMImpl"
+   LoadComponentsLazily="true" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_deployType" Value="0" />
+      <Attr Name="_superClassName" Value="oracle.apps.fnd.framework.server.OAApplicationModuleImpl" />
+   </DesignTime>
+   <ViewUsage
+      Name="GetProductNameFromProductIdVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.GetProductNameFromProductIdVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="CheckForDuplicateSerialNumberVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.CheckForDuplicateSerialNumberVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="GetCreditForThisUserVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.GetCreditForThisUserVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="NewBatchVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewBatchVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="NewNonRscItemsInVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewNonRscItemsInVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="NewRscItemsInVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewRscItemsInVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="NewRscItemsOutVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NewRscItemsOutVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="CurrentBatchVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.CurrentBatchVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PetinfoBreedDropdownVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetinfoBreedDropdownVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PetinfoSexDropdownVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetinfoSexDropdownVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="BatteryPlanVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.BatteryPlanVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="CreateBatchTypeVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.CreateBatchTypeVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PetinfoSpayNeuterVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.PetinfoSpayNeuterVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="LPTypeDropDownVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.LPTypeDropDownVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="LPUsedVO1"
+      ViewObjectName="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.LPUsedVO" >
+   </ViewUsage>
+</AppModule>

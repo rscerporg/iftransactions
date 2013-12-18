@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" windowTitle="Define Item Serial Formatting" amDefName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.SetupsAM" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.admin.webui.DefineSerialFormatsPGCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:table id="NewSerialNumberFormatTableRN" blockSize="500" shortDesc="Serial Number Formats">
+               <ui:contents>
+                  <oa:messageTextInput id="ItemCode" dataType="VARCHAR2" prompt="Item Code" viewName="NewSerialNumberFormatVO1" viewAttr="ItemCode" maximumLength="200" columns="10"/>
+                  <oa:messageTextInput id="ItemName" dataType="VARCHAR2" prompt="Item Name" viewName="NewSerialNumberFormatVO1" viewAttr="ItemName" maximumLength="2000" columns="50"/>
+                  <oa:messageTextInput id="ModuleNumber" dataType="VARCHAR2" prompt="Module Number" viewName="NewSerialNumberFormatVO1" viewAttr="ModuleNumber" maximumLength="2000" columns="25"/>
+               </ui:contents>
+               <ui:tableActions>
+                  <oa:rowLayout id="TableButtonsRN">
+                     <ui:contents>
+                        <oa:button id="AddRowToTableButton" text="Add Row" prompt="Add Row">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="AddRowsToDefineSerialFormatsTable" id="firePartialAction11"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                        <oa:button id="DeleteRowsButton" text="Delete Rows" prompt="Delete Rows">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="DeleteRowsFromDefineSerialFormatsTable" id="fireAction4"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                        <oa:button id="SaveChangesButton" text="Save Changes" prompt="Save Changes">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="SaveChanges" id="fireAction3"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:tableActions>
+               <ui:tableSelection>
+                  <oa:multipleSelection id="multipleSelection1" viewName="NewSerialNumberFormatVO1" viewAttr="Transient1"/>
+               </ui:tableSelection>
+            </oa:table>
+            <oa:pageButtonBar id="PageButtonsRN">
+               <ui:contents>
+                  <oa:submitButton id="RefreshButton" text="Refresh Page" prompt="Refresh Page">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="RefreshThisPage" id="fireAction1"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:spacer id="spacer11" width="25"/>
+                  <oa:exportButton id="ExportToExcelButton" exportAllRows="true" viewName="NewSerialNumberFormatVO1" text="Export To Excel"/>
+               </ui:contents>
+            </oa:pageButtonBar>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/ifupgrades/util/RskUtilsRN"/>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

@@ -1,0 +1,189 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" amDefName="oracle.apps.po.rscapps.oss.iftransactions.common.applicationmodules.BatchSummaryAM" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.common.webui.DealerSummaryPGCO" windowTitle="Batch Submissions Summary">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:pageButtonBar id="PageButtonsRN">
+               <ui:contents>
+                  <oa:rowLayout id="region1">
+                     <ui:contents>
+                        <oa:submitButton id="CreateNewBatch" prompt="Create Batch" rendered="${oa.IsThisUserADistributorVO1.ShowHideValue}" text="Create Batch">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="CreateNewBatch" id="fireAction1"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                        <oa:spacer id="spacer1" width="25"/>
+                        <oa:submitButton id="RefreshButton" text="Refresh Page" prompt="Refresh Page">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="RefreshThisPage" id="fireAction2"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                        <oa:spacer id="spacer11" width="25"/>
+                        <oa:exportButton id="ExportToExcelButton" exportAllRows="true" viewName="DealerViewBatchSummaryVO1" text="Export To Excel"/>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:pageButtonBar>
+            <oa:spacer id="item1" height="35"/>
+            <oa:query id="QueryRN" mode="resultsBasedSearch" dispSimple="false" dispCustomized="false" dispAdvanced="true" defaultPanel="advanced" showCustomizePanelControls="false">
+               <ui:contents>
+                  <oa:advancedTable id="SubmittedBatchesAdvancedTableRN" viewName="DealerViewBatchSummaryVO1" tableBanding="rowBanding" blockSize="500" bandingInterval="1" text="Batch Summary" shortDesc="Batch Summary" width="90%">
+                     <ui:contents>
+                        <oa:column id="BatchIdAdv" bandingShade="dark">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader1" sortByViewAttr="BatchId" prompt="Batch Id" sortState="yes"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="BatchId1" dataType="NUMBER" prompt="Batch Id" viewAttr="BatchId" styleClass="OraDataText" queryable="true">
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction event="GoToDetailPG" id="fireAction3">
+                                       <ui:parameters>
+                                          <ui:parameter key="BatchId" value="${oa.current.BatchId}"/>
+                                       </ui:parameters>
+                                    </ui:fireAction>
+                                 </ui:primaryClientAction>
+                              </oa:messageStyledText>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="BatchTypeAdv" bandingShade="dark">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader13" sortByViewAttr="AdditionalInfo1" prompt="Batch Type" sortState="yes"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="BatchType" dataType="VARCHAR2" prompt="Batch Type" viewAttr="AdditionalInfo1" queryable="true"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="DealerNameAdv" rendered="true" bandingShade="light">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader5" prompt="Dealer Name"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="DealerNameAdvItem" viewAttr="DealerName" queryable="true"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="DistributorNameAdv" rendered="true" bandingShade="dark">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader6" prompt="Distributor Name" sortByViewAttr="DistributorName"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="DistributorNameAdvItem" prompt="Distributor Name" viewAttr="DistributorName" queryable="true"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="ClaimSubmissionDateAdv" rendered="true" bandingShade="light">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader7" sortByViewAttr="ClaimSubmissionDate" prompt="Submit Date"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="ClaimSubmissionDateAdvItem" viewAttr="ClaimSubmissionDate" queryable="true" dataType="DATE"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="CustInfoNameAdv" rendered="true" bandingShade="dark">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader8" prompt="Customer Name" sortByViewAttr="CustInfoName"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="CustInfoNameAdvItem" viewAttr="CustInfoName" queryable="true"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="CustAddressDispAdv" rendered="true" bandingShade="light">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader9" sortByViewAttr="CustAddressDisp" prompt="Customer Address"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="CustAddressDispAdvItem" viewAttr="CustAddressDisp"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="NewEquipCountAdv" rendered="true" bandingShade="dark">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader10" prompt="# New" sortByViewAttr="NewEquipCount"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="NewEquipCountAdvItem" viewAttr="NewEquipCount"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="NewEquipListAdv" rendered="true" bandingShade="dark">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader101" prompt="New Equipment" sortByViewAttr="NewEquipmentsList"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="NewEquipListAdvItem" viewAttr="NewEquipmentsList" exportByViewAttr="NewEquipmentsList"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="ReplacedRscEquipCountAdv" rendered="true" bandingShade="light">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader11" sortByViewAttr="ReplacedRscEquipCount" prompt="# Replacements (IFB)"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="ReplacedRscEquipCountAdvItem" viewAttr="ReplacedRscEquipCount"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="ReplacedRscEquipListAdv" rendered="true" bandingShade="light">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader111" sortByViewAttr="ReplacedRscEquipList" prompt="Replacements (IFB)"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="ReplacedRscEquipListAdvItem" viewAttr="ReplacedRscEquipList" exportByViewAttr="ReplacedRscEquipList"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="ReplacedNonRscEquipCountAdv" rendered="true" bandingShade="dark">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader12" prompt="# Replacements (Non-IFB)"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="ReplacedNonRscEquipCountAdvItem" viewAttr="ReplacedNonRscEquipCount"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="ReplacedNonRscEquipListAdv" rendered="true" bandingShade="dark">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader121" prompt="Replacements (Non-IFB)" sortByViewAttr="ReplacedNonRscEquipList"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="ReplacedNonRscEquipListAdvItem" viewAttr="ReplacedNonRscEquipList" exportByViewAttr="ReplacedNonRscEquipList"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="EligibleUpgradeCreditAdv" rendered="true" bandingShade="light">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader4" sortByViewAttr="Eligibleupgradecredit" prompt="Eligible Credit"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="EligibleUpgradeCreditAdvItem" viewAttr="Eligiblecredit"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="CurrentApproverAdv" rendered="true" bandingShade="dark">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader3" prompt="Current Approver" sortByViewAttr="CurrentApprover"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="CurrentApproverAdvItem" viewAttr="CurrentApprover" queryable="false"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="BatchStatusAdv" rendered="true" bandingShade="light" cellNoWrapFormat="true">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader2" prompt="Batch Status" sortByViewAttr="Status"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="BatchStatusAdvItem" viewAttr="Status" queryable="true"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="CreditMemoAdv" rendered="true" bandingShade="light" cellNoWrapFormat="true">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader21" prompt="Credit Memo" sortByViewAttr="AdditionalInfo15"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="CreditMemoShowAdvItem" viewAttr="AdditionalInfo15" rendered="true" prompt="" tipType="none" queryable="true"/>
+                           </ui:contents>
+                        </oa:column>
+                     </ui:contents>
+                  </oa:advancedTable>
+               </ui:contents>
+            </oa:query>
+            <oa:spacer id="item2" height="35"/>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/RskUtilsRN"/>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

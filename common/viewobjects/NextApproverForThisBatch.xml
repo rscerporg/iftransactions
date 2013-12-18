@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="NextApproverForThisBatch"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.NextApproverForThisBatchImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT 
+RSC_IFB_OSS_UPGRADES_PKG.GET_NEXT_BATCH_APPROVER_ID(:1) NEXT_APPRV_PARTY_ID, 
+RSC_IFB_OSS_UPGRADES_PKG.GET_NEXT_BATCH_APPROVER_NAME(:2) NEXT_APPRV_PARTY_NAME,
+RSC_IFB_OSS_UPGRADES_PKG.GET_CURR_BATCH_APPROVER_ID(:3) CURRENT_APPRV_ID,
+RSC_IFB_OSS_UPGRADES_PKG.GET_CURR_BATCH_APPROVER_NAME(:4) CURRENT_APPRV_NAME
+
+FROM DUAL
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <ViewAttribute
+      Name="NextApprvPartyId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NEXT_APPRV_PARTY_ID"
+      Expression="NEXT_APPRV_PARTY_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NextApprvPartyName"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NEXT_APPRV_PARTY_NAME"
+      Expression="NEXT_APPRV_PARTY_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CurrentApprvId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CURRENT_APPRV_ID"
+      Expression="CURRENT_APPRV_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CurrentApprvName"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CURRENT_APPRV_NAME"
+      Expression="CURRENT_APPRV_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

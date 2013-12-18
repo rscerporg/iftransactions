@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.admin.webui.ApproverBatchSummaryReadOnlyViewPGCO" amDefName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.BatchApprovalAM" windowTitle="Batches Submitted - Summary View">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:query id="QueryRN" mode="resultsBasedSearch" dispSimple="false" dispCustomized="false" dispAdvanced="true" defaultPanel="advanced" showCustomizePanelControls="false">
+               <ui:contents>
+                  <oa:table id="ApproverViewBatchesPendingApprovalRN" shortDesc="Batches Submitted - Summary View" text="Batches Submitted - Summary View" blockSize="500">
+                     <ui:contents>
+                        <oa:messageStyledText id="BatchId" dataType="NUMBER" prompt="Batch Id" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="BatchId" sortState="descending" styleClass="OraDataText" cellNoWrapFormat="true" initSortSeq="first" queryable="false" required="yes">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="GoToDetailPG" id="fireAction12">
+                                 <ui:parameters>
+                                    <ui:parameter key="BatchId" value="${oa.current.BatchId}"/>
+                                 </ui:parameters>
+                              </ui:fireAction>
+                           </ui:primaryClientAction>
+                        </oa:messageStyledText>
+                        <oa:messageStyledText id="BatchType" dataType="VARCHAR2" prompt="Batch Type" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="AdditionalInfo1" sortState="yes" cellNoWrapFormat="true" initSortSeq="none"/>
+                        <oa:messageStyledText id="DealerName" dataType="VARCHAR2" prompt="Dealer Name" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="DealerName" maximumLength="2000" sortState="yes" cellNoWrapFormat="true" queryable="true"/>
+                        <oa:messageStyledText id="DistributorName" dataType="VARCHAR2" prompt="Distributor Name" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="DistributorName" maximumLength="2000" sortState="yes" cellNoWrapFormat="true" queryable="true"/>
+                        <oa:messageStyledText id="ClaimSubmissionDate" dataType="DATE" prompt="Claim Submission Date" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="ClaimSubmissionDate" sortState="yes" cellNoWrapFormat="true" queryable="true"/>
+                        <oa:messageStyledText id="CustInfoName" dataType="VARCHAR2" prompt="Customer Name" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="CustInfoName" maximumLength="200" sortState="yes" cellNoWrapFormat="true" queryable="true"/>
+                        <oa:messageStyledText id="CustAddressDisp" dataType="VARCHAR2" prompt="Customer Address" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="CustAddressDisp" maximumLength="469" sortState="no" cellNoWrapFormat="true"/>
+                        <oa:messageStyledText id="NewEquipCount" dataType="NUMBER" prompt="# New Equipment" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="NewEquipCount" sortState="no" cellNoWrapFormat="true"/>
+                        <oa:messageStyledText id="NewEquipList" dataType="VARCHAR2" prompt="New Equipment" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="NewEquipmentsList" sortState="no" cellNoWrapFormat="true"/>
+                        <oa:messageStyledText id="ReplacedRscEquipCount" dataType="NUMBER" prompt="# Replacements - Invisible Fence Brand" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="ReplacedRscEquipCount" sortState="no" cellNoWrapFormat="true"/>
+                        <oa:messageStyledText id="ReplacedRscEquipList" dataType="VARCHAR2" prompt="Replacements - Invisible Fence Brand" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="ReplacedRscEquipList" sortState="no" cellNoWrapFormat="true"/>
+                        <oa:messageStyledText id="ReplacedNonRscEquipCount" dataType="NUMBER" prompt="# Replacements - Non-RSC" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="ReplacedNonRscEquipCount" sortState="no" cellNoWrapFormat="true"/>
+                        <oa:messageStyledText id="ReplacedNonRscEquipList" dataType="VARCHAR2" prompt="Replacements - Non-RSC" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="ReplacedNonRscEquipList" sortState="no" cellNoWrapFormat="true"/>
+                        <oa:messageStyledText id="EligibleUpgradeCredit" prompt="Eligible Upgrade Credit" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="Eligiblecredit" cellNoWrapFormat="true"/>
+                        <oa:messageStyledText id="BatchStatus" dataType="VARCHAR2" prompt="Batch Status" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="BatchStatus" maximumLength="100" sortState="no" cellNoWrapFormat="true"/>
+                        <oa:messageStyledText id="CreditMemo" viewName="ApproverViewBatchesSummaryReadOnlyViewVO1" viewAttr="AdditionalInfo15" prompt="Credit Memo" queryable="true"/>
+                     </ui:contents>
+                  </oa:table>
+               </ui:contents>
+            </oa:query>
+            <oa:spacer id="Spacer1" height="15"/>
+            <oa:pageButtonBar id="PageButtonsRN">
+               <ui:contents>
+                  <oa:submitButton id="RefreshButton" text="Refresh Page" prompt="Refresh Page">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="RefreshThisPage" id="fireAction11"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:spacer id="spacer11" width="25"/>
+                  <oa:exportButton id="ExportToExcelButton" exportAllRows="true" viewName="NewRscIfbTransactionsApprvDefnVO1" text="Export To Excel"/>
+               </ui:contents>
+            </oa:pageButtonBar>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/RskUtilsRN"/>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

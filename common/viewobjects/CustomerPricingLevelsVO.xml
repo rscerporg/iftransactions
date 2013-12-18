@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="CustomerPricingLevelsVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.CustomerPricingLevelsVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT RscIfbTransCustPriceLvlEO.CUSTOMER_PARTY_ID, 
+       RscIfbTransCustPriceLvlEO.CUSTOMER_NAME, 
+       RscIfbTransCustPriceLvlEO.PRICING_LEVEL_ID, 
+       RscIfbTransCustPriceLvlEO.PRICING_LEVEL_NAME, 
+       RscIfbTransCustPriceLvlEO.CREATED_BY, 
+       RscIfbTransCustPriceLvlEO.LAST_UPDATE_LOGIN, 
+       RscIfbTransCustPriceLvlEO.LAST_UPDATED_BY, 
+       RscIfbTransCustPriceLvlEO.CREATION_DATE, 
+       RscIfbTransCustPriceLvlEO.LAST_UPDATE_DATE
+FROM RSC_IFB_UPGRDS_CUST_PRICE_LVL RscIfbTransCustPriceLvlEO
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <EntityUsage
+      Name="RscIfbTransactionsCustPriceLvlEO"
+      Entity="oracle.apps.po.rscapps.oss.iftransactions.common.entityobjects.RscIfbTransactionsCustPriceLvlEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="CustomerPartyId"
+      IsNotNull="true"
+      EntityAttrName="CustomerPartyId"
+      EntityUsage="RscIfbTransactionsCustPriceLvlEO"
+      AliasName="CUSTOMER_PARTY_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustomerName"
+      Precision="2000"
+      EntityAttrName="CustomerName"
+      EntityUsage="RscIfbTransactionsCustPriceLvlEO"
+      AliasName="CUSTOMER_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PricingLevelId"
+      EntityAttrName="PricingLevelId"
+      EntityUsage="RscIfbTransactionsCustPriceLvlEO"
+      AliasName="PRICING_LEVEL_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PricingLevelName"
+      Precision="2000"
+      EntityAttrName="PricingLevelName"
+      EntityUsage="RscIfbTransactionsCustPriceLvlEO"
+      AliasName="PRICING_LEVEL_NAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="CreatedBy"
+      EntityUsage="RscIfbTransactionsCustPriceLvlEO"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="RscIfbTransactionsCustPriceLvlEO"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      Precision="15"
+      Scale="0"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="RscIfbTransactionsCustPriceLvlEO"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      EntityAttrName="CreationDate"
+      EntityUsage="RscIfbTransactionsCustPriceLvlEO"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="RscIfbTransactionsCustPriceLvlEO"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+</ViewObject>

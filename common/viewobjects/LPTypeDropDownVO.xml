@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="LPTypeDropDownVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.LPTypeDropDownVORowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.LPTypeDropDownVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT RscIfbTransactionsDropdownEO.ITEM_ID, 
+       RscIfbTransactionsDropdownEO.ITEM_VALUE, 
+       RscIfbTransactionsDropdownEO.TABLE_ID, 
+       RscIfbTransactionsDropdownEO.ROWID
+FROM RSC_IFB_UPGRADES_DROPDOWNS RscIfbTransactionsDropdownEO
+where RscIfbTransactionsDropdownEO.TABLE_ID=3
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <ViewAttribute
+      Name="ItemId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ITEM_ID"
+      Expression="ITEM_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ItemValue"
+      IsPersistent="false"
+      Precision="200"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ITEM_VALUE"
+      Expression="ITEM_VALUE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="200" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="TableId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="TABLE_ID"
+      Expression="TABLE_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Rowid1"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.RowID"
+      ColumnType="ROWID"
+      Expression="ROWID"
+      SQLType="ROWID" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

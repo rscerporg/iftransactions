@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:defaultSingleColumn version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" text="Dealer Information" standalone="false" scope="/">
+   <ui:contents>
+      <oa:messageTextInput id="ClaimSubmissionDate" dataType="DATE" prompt="Submission Date" viewName="NewBatchVO1" viewAttr="ClaimSubmissionDate"/>
+      <oa:spacer id="item2"/>
+      <oa:messageTextInput id="BatchSubmittedBy" prompt="Batch Submitted By" viewName="NewBatchVO1" viewAttr="DealerName" maximumLength="2000" readOnly="true"/>
+      <oa:formValue id="DealerId" viewName="NewBatchVO1" viewAttr="DealerId"/>
+      <oa:spacer id="item3"/>
+      <oa:rawText id="item5"/>
+      <oa:messageTextInput id="DealerSignature" prompt="Dealer Signature" tipType="shortTip" viewName="NewBatchVO1" viewAttr="DealerSignature" maximumLength="2000" required="uiOnly"/>
+      <oa:tip id="item4" text="" styleClass="OraTipText" tipMessageAppShortName="PO" tipMessageName="RSC_OSS_IFB_DEALER_SIGN"/>
+   </ui:contents>
+</oa:defaultSingleColumn>

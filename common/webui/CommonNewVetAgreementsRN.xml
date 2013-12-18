@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:header version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" text="Vet Agreements" standalone="false" scope="/">
+   <ui:contents>
+      <oa:messageComponentLayout id="VetRequestFields" width="50%">
+         <ui:contents>
+            <oa:messageChoice id="VetRequest" dataType="VARCHAR2" prompt="Vet has requested to be included in Vet Locator service?" viewName="NewBatchVO1" viewAttr="VetLocator" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.VetReqToBeIncludedVO" pickListDispAttr="Vetreqtobeincluded" pickListValAttr="Vetreqtobeincludedvalue" allowBlankValue="false"/>
+            <oa:messageChoice id="VetAgreed" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.VetAgreedToRecommendVO" prompt="Vet hasagreed to recommend IFB and PetSage products and to display literature?" viewName="NewBatchVO1" viewAttr="VetPetsafeProducts" pickListDispAttr="Vetagreedtorecommend" pickListValAttr="Vetagreedtorecommendvalue" allowBlankValue="false"/>
+         </ui:contents>
+      </oa:messageComponentLayout>
+   </ui:contents>
+</oa:header>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding='windows-1252'?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="DealerViewBatchSummaryVO"
+   BindingStyle="Oracle"
+   CustomQuery="true"
+   RowClass="oracle.apps.fnd.framework.server.OAViewRowImpl"
+   ComponentClass="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.DealerViewBatchSummaryVOImpl"
+   MsgBundleClass="oracle.jbo.common.JboResourceBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select 
+rscbatch.batch_id, 
+rscbatch.dealer_name,
+rscbatch.distributor_name,
+rscbatch.claim_submission_date,
+rscbatch.cust_info_name, 
+nvl(rscbatch.cust_info_address1, '') || ' , ' || nvl(rscbatch.cust_info_city, '') || ' , ' || nvl(rscbatch.cust_info_state, '') || ' , ' || nvl(rscbatch.cust_info_zip, '') Cust_Address_Disp,
+(select count(rscout.replacement_id) from RSC_IFB_UPGRADES_ITEM_OUT rscout where rscout.batch_id = rscbatch.batch_id) New_Equip_Count,
+(select count(rscin.trade_in_id) from RSC_IFB_UPGRADES_ITEMS_IN rscin where rscin.batch_id = rscbatch.batch_id) Replaced_RSC_Equip_Count,
+(select count(nonrscin.trade_in_id) from RSC_IFB_UPGRADES_ITEMS_IN nonrscin where nonrscin.batch_id = rscbatch.batch_id) Replaced_Non_RSC_Equip_Count,
+decode(rscbatch.status, 'PENDING_APPROVAL', 'Pending Approval', 'REJECTED', 'Rejected', 'PENDING_RSC_APPROVAL', 'Pending RSC Approval', 'RSC_REJECTED', 'Rejected By RSC',  'RSC_APPROVED', 'RSC Approved. Sales Credit Pending', 'RSC_CREDIT_APPROVED', 'Sales Credit Issued', 'RSC_CREDIT_REJECTED', 'Sales Credit Denied', 'Contact Administrator'),
+NVL((select sum(itemsout.upgrade_credit_value) from RSC_IFB_UPGRADES_ITEM_OUT itemsout where itemsout.batch_id = rscbatch.batch_id), 0) EligibleCredit,
+RSC_IFB_OSS_UPGRADES_PKG.GET_PARTY_NAME(rscbatch.APPROVAL_NEEDED_FROM) Current_Approver,
+rscbatch.created_by,
+rscbatch.ADDITIONAL_INFO_15,
+rscbatch.ADDITIONAL_INFO_1,
+NVL( (select rtrim (xmlagg (xmlelement (e, itemsout.replacement_item_model_name || ',')).extract ('//text()'), ',') from rsc_ifb_upgrades_item_out itemsout where itemsout.batch_id = rscbatch.batch_id), 'N/A') New_Equipments_List, 
+NVL( (select rtrim (xmlagg (xmlelement (e, itemsin.trade_in_item_model_name || ',')).extract ('//text()'), ',') from rsc_ifb_upgrades_items_in itemsin where itemsin.batch_id = rscbatch.batch_id and IS_RSC_ITEM = 'YES'), 'N/A') Replaced_Rsc_Equip_list, 
+NVL( (select rtrim (xmlagg (xmlelement (e, itemsin.trade_in_item_model_name || ',')).extract ('//text()'), ',') from rsc_ifb_upgrades_items_in itemsin where itemsin.batch_id = rscbatch.batch_id and IS_RSC_ITEM = 'NO'), 'N/A')  Replaced_Non_Rsc_Equip_list
+from RSC_IFB_UPGRADES_BATCH rscbatch
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_version" Value="9.0.3.14.01" />
+      <Attr Name="_CodeGenFlagNew" Value="36" />
+   </DesignTime>
+   <ViewAttribute
+      Name="BatchId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="BATCH_ID"
+      Expression="BATCH_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DealerName"
+      IsPersistent="false"
+      Precision="2000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DEALER_NAME"
+      Expression="DEALER_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DistributorName"
+      IsPersistent="false"
+      Precision="2000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DISTRIBUTOR_NAME"
+      Expression="DISTRIBUTOR_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ClaimSubmissionDate"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="CLAIM_SUBMISSION_DATE"
+      Expression="CLAIM_SUBMISSION_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustInfoName"
+      IsPersistent="false"
+      Precision="200"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CUST_INFO_NAME"
+      Expression="CUST_INFO_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="200" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CustAddressDisp"
+      IsPersistent="false"
+      Precision="469"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CUST_ADDRESS_DISP"
+      Expression="CUST_ADDRESS_DISP"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="469" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NewEquipCount"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NEW_EQUIP_COUNT"
+      Expression="NEW_EQUIP_COUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReplacedRscEquipCount"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="REPLACED_RSC_EQUIP_COUNT"
+      Expression="REPLACED_RSC_EQUIP_COUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReplacedNonRscEquipCount"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="REPLACED_NON_RSC_EQUIP_COUNT"
+      Expression="REPLACED_NON_RSC_EQUIP_COUNT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Status"
+      IsPersistent="false"
+      Precision="34"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DECODERSCBATCHSTATUSPENDINGAPP"
+      Expression="DECODE(RSCBATCH.STATUS,PENDING_APPROVAL,PENDINGAPPROVAL,REJECTED,REJECTED,PENDING_RSC_APPROVAL,PENDINGRSCAPPROVAL,RSC_REJECTED,REJECTEDBYRSC,RSC_APPROVED,RSCAPPROVED.SALESCREDITPENDING,RSC_CREDIT_APPROVED,SALESCREDITISSUED,RSC_"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="34" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Eligiblecredit"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ELIGIBLECREDIT"
+      Expression="ELIGIBLECREDIT"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CurrentApprover"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CURRENT_APPROVER"
+      Expression="CURRENT_APPROVER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      IsPersistent="false"
+      Precision="15"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CREATED_BY"
+      Expression="CREATED_BY"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo15"
+      IsPersistent="false"
+      Precision="2000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ADDITIONAL_INFO_15"
+      Expression="ADDITIONAL_INFO_15"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AdditionalInfo1"
+      IsPersistent="false"
+      Precision="2000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ADDITIONAL_INFO_1"
+      Expression="ADDITIONAL_INFO_1"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NewEquipmentsList"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NEW_EQUIPMENTS_LIST"
+      Expression="NEW_EQUIPMENTS_LIST"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReplacedRscEquipList"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="REPLACED_RSC_EQUIP_LIST"
+      Expression="REPLACED_RSC_EQUIP_LIST"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReplacedNonRscEquipList"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="REPLACED_NON_RSC_EQUIP_LIST"
+      Expression="REPLACED_NON_RSC_EQUIP_LIST"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

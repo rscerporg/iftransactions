@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:header version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" standalone="true" scope="/" text="Pet Information" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.common.webui.CommonNewPetInfoRNCO">
+   <ui:contents>
+      <oa:messageComponentLayout id="PetInfoFields" width="50%" rows="3" columns="4">
+         <ui:contents>
+            <oa:messageChoice id="Breed1" dataType="NUMBER" prompt="Breed:" viewName="NewBatchVO1" viewAttr="Breed1" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetinfoBreedDropdownVO" pickListDispAttr="ItemValue" pickListValAttr="ItemId" allowBlankValue="true" required="no"/>
+            <oa:messageChoice id="Breed2" dataType="NUMBER" prompt="Breed:" viewName="NewBatchVO1" viewAttr="Breed2" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetinfoBreedDropdownVO" pickListDispAttr="ItemValue" pickListValAttr="ItemId" allowBlankValue="true" required="no"/>
+            <oa:messageChoice id="Breed3" dataType="NUMBER" prompt="Breed:" viewName="NewBatchVO1" viewAttr="Breed3" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetinfoBreedDropdownVO" pickListDispAttr="ItemValue" pickListValAttr="ItemId" allowBlankValue="true" required="no"/>
+            <oa:messageTextInput id="Age1" dataType="NUMBER" prompt="Age:" viewName="NewBatchVO1" viewAttr="Age1"/>
+            <oa:messageTextInput id="Age2" dataType="NUMBER" prompt="Age:" viewName="NewBatchVO1" viewAttr="Age2"/>
+            <oa:messageTextInput id="Age3" dataType="NUMBER" prompt="Age:" viewName="NewBatchVO1" viewAttr="Age3"/>
+            <oa:messageChoice id="Sex1" dataType="NUMBER" prompt="Sex:" viewName="NewBatchVO1" viewAttr="Sex1" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetinfoSexDropdownVO" pickListDispAttr="ItemValue" pickListValAttr="ItemId" allowBlankValue="true" required="no"/>
+            <oa:messageChoice id="Sex2" dataType="NUMBER" prompt="Sex:" viewName="NewBatchVO1" viewAttr="Sex2" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetinfoSexDropdownVO" pickListDispAttr="ItemValue" pickListValAttr="ItemId" allowBlankValue="true" required="no"/>
+            <oa:messageChoice id="Sex3" dataType="NUMBER" prompt="Sex:" viewName="NewBatchVO1" viewAttr="Sex3" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.PetinfoSexDropdownVO" pickListDispAttr="ItemValue" pickListValAttr="ItemId" allowBlankValue="true" required="no"/>
+            <oa:messageChoice id="SpayNeuter1" dataType="NUMBER" prompt="Spay/Neuter:" viewName="NewBatchVO1" viewAttr="SpayNeuter1" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.PetinfoSpayNeuterVO" pickListDispAttr="Spayneuter" pickListValAttr="Spayneutervalue" allowBlankValue="true" required="no"/>
+            <oa:messageChoice id="SpayNeuter2" dataType="NUMBER" prompt="Spay/Neuter:" viewName="NewBatchVO1" viewAttr="SpayNeuter2" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.PetinfoSpayNeuterVO" pickListDispAttr="Spayneuter" pickListValAttr="Spayneutervalue" allowBlankValue="true" required="no"/>
+            <oa:messageChoice id="SpayNeuter3" dataType="NUMBER" prompt="Spay/Neuter:" viewName="NewBatchVO1" viewAttr="SpayNeuter3" pickListViewDef="oracle.apps.po.rscapps.oss.iftransactions.common.viewobjects.nonentityobjects.PetinfoSpayNeuterVO" pickListDispAttr="Spayneuter" pickListValAttr="Spayneutervalue" allowBlankValue="true" required="no"/>
+         </ui:contents>
+      </oa:messageComponentLayout>
+   </ui:contents>
+</oa:header>

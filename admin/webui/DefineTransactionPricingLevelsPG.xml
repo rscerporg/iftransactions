@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="RootRN" windowTitle="Setup Transactions Pricing For Items" amDefName="oracle.apps.po.rscapps.oss.iftransactions.admin.applicationmodules.SetupsAM" controllerClass="oracle.apps.po.rscapps.oss.iftransactions.admin.webui.DefineTransactionPricingLevelsPGCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/IFLogo.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:pageButtonBar id="PageButtonsRN">
+               <ui:contents>
+                  <oa:submitButton id="GoToCustomerSetupPGButton" text="Define Customer Pricing Level" prompt="Define Customer Pricing Level">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="GoToCustomerSetupPG" id="fireAction2"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:spacer id="spacer11" width="25"/>
+                  <oa:submitButton id="RefreshButton" text="Refresh Page" prompt="Refresh Page">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="RefreshThisPage" id="fireAction1"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+                  <oa:spacer id="spacer111" width="25"/>
+                  <oa:exportButton id="ExportToExcelButton" exportAllRows="true" viewName="TransactionsPricingInfoVO1" text="Export To Excel"/>
+               </ui:contents>
+            </oa:pageButtonBar>
+            <oa:header id="DefineTransactionsPricingLevelRN" text="Setup Transactions Discounts For Items">
+               <ui:contents>
+                  <oa:spacer id="Spacer11" height="15"/>
+                  <oa:table id="TransactionsPricingLevelSetupTableRN" blockSize="500" shortDesc="Transaction Pricing Levels">
+                     <ui:contents>
+                        <oa:formValue id="ItemId" dataType="NUMBER" prompt="ItemId" viewName="TransactionsPricingInfoVO1" viewAttr="ItemId"/>
+                        <oa:messageLovInput id="ItemName" viewName="TransactionsPricingInfoVO1" maximumLength="2000" viewAttr="ItemName" prompt="Item Name" externalListOfValues="/oracle/apps/po/rscapps/oss/iftransactions/common/webui/ItemLovRN">
+                           <lovMappings>
+                              <lovMap id="lovMap1" lovItem="Segment1" resultTo="ItemName" criteriaFrom="ItemName"/>
+                              <lovMap id="lovMap2" lovItem="InventoryItemId" resultTo="ItemId"/>
+                           </lovMappings>
+                        </oa:messageLovInput>
+                        <oa:messageTextInput id="DealerPricing" dataType="NUMBER" prompt="Dealer Pricing" viewName="TransactionsPricingInfoVO1" viewAttr="DefaultPricing"/>
+                        <oa:messageTextInput id="PricingLevel1" dataType="NUMBER" prompt="Pricing Level 1" viewName="TransactionsPricingInfoVO1" viewAttr="PricingLevel1"/>
+                        <oa:messageTextInput id="PricingLevel2" dataType="NUMBER" prompt="Pricing Level 2" viewName="TransactionsPricingInfoVO1" viewAttr="PricingLevel2"/>
+                        <oa:messageTextInput id="PricingLevel3" dataType="NUMBER" prompt="Pricing Level 3" viewName="TransactionsPricingInfoVO1" viewAttr="PricingLevel3"/>
+                        <oa:messageTextInput id="PricingLevel4" dataType="NUMBER" prompt="Pricing Level 4" viewName="TransactionsPricingInfoVO1" viewAttr="PricingLevel4"/>
+                        <oa:messageTextInput id="PricingLevel5" dataType="NUMBER" prompt="Pricing Level 5" viewName="TransactionsPricingInfoVO1" viewAttr="PricingLevel5"/>
+                     </ui:contents>
+                     <ui:tableActions>
+                        <oa:flowLayout id="TableActionRN">
+                           <ui:contents>
+                              <oa:button id="AddRowToTableButton" text="Add Row" prompt="Add Row">
+                                 <ui:primaryClientAction>
+                                    <ui:firePartialAction event="AddRowToTransactionPricingLevelsSetupTable" id="firePartialAction1"/>
+                                 </ui:primaryClientAction>
+                              </oa:button>
+                              <oa:spacer id="Spacer1" width="25"/>
+                              <oa:button id="DeleteRowsButton" text="Delete Rows" prompt="Delete Rows"/>
+                              <oa:spacer id="Spacer2" width="25"/>
+                              <oa:button id="SaveChangesButton" text="Save Changes" prompt="Save Changes">
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction event="SaveChanges" id="fireAction21"/>
+                                 </ui:primaryClientAction>
+                              </oa:button>
+                           </ui:contents>
+                        </oa:flowLayout>
+                     </ui:tableActions>
+                     <ui:tableSelection>
+                        <oa:multipleSelection id="multipleSelection1" viewName="TransactionsPricingInfoVO1" viewAttr="Transient1"/>
+                     </ui:tableSelection>
+                  </oa:table>
+               </ui:contents>
+            </oa:header>
+            <oa:flowLayout id="RskGenericIncludeForThisPG" extends="/oracle/apps/po/rscapps/oss/ifupgrades/util/RskUtilsRN"/>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

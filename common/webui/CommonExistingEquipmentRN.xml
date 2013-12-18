@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- dbdrv: exec java oracle/jrad/tools/xml/importer XMLImporter.class java &phase=dat+24 checkfile:~PROD:~PATH:~FILE &fullpath:~PROD:~PATH:~FILE -username &un_apps -password &pw_apps -dbconnection &jdbc_db_addr  -userId "1" -rootPackage /oracle/apps/~PROD  -rootdir &fullpath:~PROD:mds:directory  -->
+<oa:header version="9.0.3.8.13_1579" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" text="Equipment" standalone="false" scope="/">
+   <ui:contents>
+      <oa:defaultSingleColumn id="OldEquipmentRN1" text="Old Equipment">
+         <ui:contents>
+            <oa:table id="IFBEquipmentTableRN1" text="IFB Equipment Upgraded" blockSize="500" shortDesc="IFB Equipment Upgraded">
+               <ui:contents>
+                  <oa:messageStyledText id="TradeInItemSerialNum1" dataType="VARCHAR2" prompt="Serial #" viewName="RscItemsInVO1" viewAttr="TradeInItemSerialNum" maximumLength="2000" columns="25"/>
+                  <oa:messageStyledText id="TradeInItemModelName3" dataType="VARCHAR2" prompt="Model" viewName="RscItemsInVO1" viewAttr="TradeInItemModelName" maximumLength="2000" columns="25"/>
+                  <oa:formValue id="BatchId3" dataType="NUMBER" prompt="BatchId" viewName="RscItemsInVO1" viewAttr="BatchId"/>
+               </ui:contents>
+               <ui:tableActions>
+                  <oa:flowLayout id="region11">
+                     <ui:contents>
+                        <oa:button id="AddRowToTableButton11" text="Add Row" prompt="Add Row" rendered="false">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="AddRowToIFBEquipmentTable" id="firePartialAction11"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                     </ui:contents>
+                  </oa:flowLayout>
+               </ui:tableActions>
+            </oa:table>
+            <oa:spacer id="spacer0051" height="20"/>
+            <oa:table id="OtherBrandEquipmentTableRN1" text="Other Brand Traded-In" blockSize="500" shortDesc="Other Brand Traded-In">
+               <ui:contents>
+                  <oa:messageStyledText id="TradeInItemMfg1" dataType="VARCHAR2" prompt="Manufacturer" viewName="NonRscItemsInVO1" viewAttr="TradeInItemMfg" maximumLength="2000" columns="25"/>
+                  <oa:messageStyledText id="TradeInItemType1" dataType="VARCHAR2" prompt="Type" viewName="NonRscItemsInVO1" viewAttr="TradeInItemType" maximumLength="2000" columns="25"/>
+                  <oa:messageStyledText id="TradeInItemModelName21" dataType="VARCHAR2" prompt="Model" viewName="NonRscItemsInVO1" viewAttr="TradeInItemModelName" maximumLength="2000" columns="25"/>
+                  <oa:formValue id="BatchId11" dataType="NUMBER" prompt="BatchId" viewName="NonRscItemsInVO1" viewAttr="BatchId"/>
+               </ui:contents>
+               <ui:tableActions>
+                  <oa:flowLayout id="region21">
+                     <ui:contents>
+                        <oa:button id="AddRowToTableButton21" text="Add Row" prompt="Add Row" rendered="false">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="AddRowToOtherBrandEquipmentTable" id="firePartialAction21"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                     </ui:contents>
+                  </oa:flowLayout>
+               </ui:tableActions>
+            </oa:table>
+         </ui:contents>
+      </oa:defaultSingleColumn>
+      <oa:defaultDoubleColumn id="NewEquipmentRN1" text="New Equipment">
+         <ui:contents>
+            <oa:table id="NewItemsInfoTableRN1" text="Enter model &amp; serial number of new IFB equipment" blockSize="500" shortDesc="Enter model &amp; serial number of new IFB equipment">
+               <ui:contents>
+                  <oa:messageTextInput id="ReplacementItemSerial1" dataType="VARCHAR2" prompt="Serial #" viewName="RscItemsOutVO1" viewAttr="ReplacementItemSerialNum" maximumLength="2000" columns="50" readOnly="true" cellNoWrapFormat="true"/>
+                  <oa:messageTextInput id="ReplacementItemModelName1" dataType="VARCHAR2" prompt="Model" viewName="RscItemsOutVO1" viewAttr="ReplacementItemModelName" maximumLength="2000" columns="50" readOnly="true" cellNoWrapFormat="true"/>
+                  <oa:formValue id="BatchId21" dataType="NUMBER" prompt="BatchId" viewName="RscItemsOutVO1" viewAttr="BatchId"/>
+                  <oa:formValue id="UpgradeCreditValue1" viewName="RscItemsOutVO1" viewAttr="UpgradeCreditValue" prompt="Upgrade Credit Eligible"/>
+                  <oa:messageStyledText id="AdminComments1" viewName="RscItemsOutVO1" viewAttr="AdditionalInfo1" prompt="Approver Comments"/>
+               </ui:contents>
+               <ui:tableActions>
+                  <oa:flowLayout id="region31">
+                     <ui:contents>
+                        <oa:button id="AddRowToTableButton31" text="Add Row" prompt="Add Row" rendered="false">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="AddRowToNewItemsInfoTable" id="firePartialAction31"/>
+                           </ui:primaryClientAction>
+                        </oa:button>
+                     </ui:contents>
+                  </oa:flowLayout>
+               </ui:tableActions>
+            </oa:table>
+         </ui:contents>
+      </oa:defaultDoubleColumn>
+   </ui:contents>
+</oa:header>
